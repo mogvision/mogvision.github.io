@@ -1,1 +1,0 @@
-# mogvision.github.io
