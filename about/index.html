@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<!-- main -->
+
+
+<!-- settings: /css/hux-blog.css  serach '<'*50-->
+<!-- Remove /home/mori/GitHubIO      /mogvision  example: /mogvision/logo/github.png -> /logo/github.png <<<<<<<<<<<<< -->
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Welcome to mogvision blog. Here you will find my tutorials, papers, programming experiments, and more.">
+    <meta name="keyword"  content="mogvision, paper, programming, code">
+    <link rel="shortcut icon" href="/logo/shortcut.png">
+
+    <title>
+        
+          MOGvision
+        
+    </title>
+
+    <link rel="canonical" href="http://testonly196.github.io/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/hux-blog.css">
+
+
+    <!-- Pygments Highlight CSS -->
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+
+    <!-- Hamburgers css -->
+    
+<link rel="stylesheet" href="/css/hamburgers.min.css">
+
+
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China -->
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.3.0">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button class="hamburger hamburger--spring navbar-toggle" type="button">
+              <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+              </span>
+            </button>
+            <!--<button type="button" class="navbar-toggle">-->
+            <!--<span class="sr-only">Toggle navigation</span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--<span .intro-headerclass="icon-bar"></span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--</button>-->
+            
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                    
+    
+                    
+                    <li>
+                        <a href="/about/">About</a>
+                    </li>
+                    
+                    
+
+
+                    
+                    <li>
+                        <a href="/contact/">Contact</a>
+                    </li>
+                    
+                    
+
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e) {
+        if ($navbar.className.indexOf('in') > 0) {
+            // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function () {
+                // prevent frequently toggle
+                if ($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            }, 400)
+
+            var pos = $toggle.className.indexOf("is-active");
+            if (pos > 0) {
+                $toggle.className = $toggle.className.substr(0, pos);
+            }
+
+
+        } else {
+            // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+            $toggle.className += " is-active";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Page Header --> <!-- style="background-image: url('/img/home-bg.jpg')" -->
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <div class="site-heading">
+                    <h1>
+                    <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+                    </script>
+                    <p><span class="math display">\[\mathcal{B}\:\text{iography}\]</span></p>
+                    </h1>
+                    <!--<hr class="small">-->
+                    <span class="subheading"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        
+
+<!-- USE SIDEBAR -->
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-1
+                col-md-8 col-md-offset-1
+                col-sm-12
+                col-xs-12
+                post-container
+            ">
+            
+                <!-- Main Content -->
+
+
+    <div class="img-preview">
+        <a href="/deepPod/"
+           title="DeepPod: a CNN for quantification of Plants' Fruits"
+           style="background-image: url(/deepPod/logo.png); background-size: 200px 184px"></a>
+    </div>
+
+
+    <br>  
+    <p>         
+    Morteza (Mori) Ghahremani is a Research Fellow at <a href="https://www.uef.fi/en/unit/ai-virtanen-institute-for-molecular-sciences"> <strong>AIVI, University of Eastern Finland</strong></a>, with experience developing computer vision algorithms for automated image processing. 
+    He held a Ph.D. degree in Artificial Intelligence (AI) in 2021, focused on understanding and developing robust AI-based algorithms for creating & analyzing  <a href="https://en.wikipedia.org/wiki/Point_cloud"> <strong>3D </strong></a> models. 
+    His background in computer vision, medical imaging, and remote sensing inform his mindful but competitive approach. 
+    Mori is fueled by his passion for developing and applying mathematical theory and modeling to achieve automatic visual understanding. 
+    Mori's hunger for knowledge and determination to turn mathematical theories and concepts into action has contributed to his most recent works like   <a href="https://en.wikipedia.org/wiki/Chaos_theory">the theory of <u>orderly disorder</u> (or <u>chaos theory</u> )</a> for <a href="/PatternNet/"><u>segmentation & classification of point cloud data</u></a>
+    or
+    <a href="/FFD/"><u>golden ratio for feature extraction from natural images</u></a>.
+    </p>         
+
+    <p> Mori considers himself a ‘forever student,’ eager to both build on his academic foundations in computer vision & AI and stay in tune with the latest advances in these fields. His research interests include- but not limited to 
+    <br>
+    &#9632; <a href="/InterTex/"><i>3D reconstruction from multi-view images</i></a>&emsp;&emsp;
+    &#9632; <a href="/ADL/">denoising</a> & <a href="/CSIGAN/"><i>image enhancement</i></a>&emsp;
+    &#9632; <a href="/InterTex/"><i>SLAM</i></a><br>
+    &#9632; <a href="/FFD/"><i>feature detection</i></a> &emsp;&emsp;
+    &#9633; <i>lip Reading using audio-visual information</i> &emsp;&emsp;
+    &#9632; <a href="/RAN/"><i>gesture recognition</i></a><br>
+    &#9632; <a href="/PatternNet/"><i>point cloud segmentation & classification</i></a>&emsp;&emsp;
+    &#9633; <i>object recognition</i>&emsp;&emsp;
+    &#9633; <a href="https://www.researchgate.net/profile/Morteza-Ghahremani-3/publication/345315452_Rigid_Registration/links/5fa359d6299bf10f7324fee3/Rigid-Registration.pdf">r<i>igid registration</i></a> <br>
+    &#9633; <i>non-rigid registration</i>&emsp;&emsp;
+    &#9632; <i>satellite imagery</i>
+    <br>
+    His current project is the co-registration and integration of MRI&<a href="https://en.wikipedia.org/wiki/Microscope_image_processing">microscopy image data</a>. 
+    MRI and microscopy image data provide complementary information about brain tissues. Integrating such data presents fundamental information of, e.g., structure and function at the cellular, tissular and global levels, which are crucial for the understanding of the healthy and diseased brain. However, integrating multimodal data is labor-intensive without automatization. In this project, he has proposed novel artificial intelligence (AI) learning-based networks, named 3DBrainAI, to 1) efficiently co-register and integrate large quantities of MRI and microscopy images from brains using GANs, 2) produce a complete brain model from the lowest possible number of microscopy images using distributed brain databases and a transfer learning approach. 
+    Mori has been serving as a reviewer for the following journals&proceedings:
+    </p>
+<strong>Journals:</strong>
+<ul>
+  <li>IEEE Transactions on Pattern Analysis and Machine Intelligence (T-PAMI)</li>
+  <li>IEEE Transactions on Image Processing (T-IP)</li>
+  <li>IEEE Transactions on Computational Imaging</li>
+  <li>IEEE/CAA Journal of Automatica Sinica</li>
+  <li>IEEE Transactions on Geoscience and Remote Sensing (T-GRS)</li>
+  <li>IEEE Geoscience and Remote Sensing Letters (L-GRS)</li>
+  <li>Springer (Scientific Reports/etc)</li>
+  <li>Taylor&Francis, etc</li>
+</ul>  
+<strong>Conference proceedings:</strong>
+<ul>
+  <li>IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</li>
+  <li>IEEE/CVF International Conference on Computer Vision (ICCV)</li>
+  <li>International Joint Conference on Artificial Intelligence (IJCAI)</li>
+  <li>Asian Conference on Computer Vision(ACCV)</li>
+  <li>Winter Conference on Applications of Computer Vision(WACV)</li>
+  <li>British Machine Vision Conference (BMVC)</li>
+  <li>ACM Multimedia (ACMMM)</li>
+</ul>  
+
+Mori believes mindfulness in the workplace is key to success - a tenet he lives out through his interests in chess, literature, and philosophy. Reach out to <a href="mailto:morteza.ghahremani.b@gmail.com"> <i class="fa fa-envelope" aria-hidden="true"></i></a> to connect!
+
+
+<hr>
+
+
+
+<!-- Pager -->
+
+<ul class="pager">
+    
+    
+</ul>
+
+
+            </div>
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-3 col-lg-offset-0
+                col-md-3 col-md-offset-0
+                col-sm-12
+                col-xs-12
+                sidebar-container
+            ">
+
+
+            <div class="row responsive-sidebar">
+    <div class="col-xs-4 col-sm-4 col-md-12">
+        <section>
+            <div class="short-about">
+                
+                <a href="/about/" title="More about me"> <img
+                            src="/about/photo.png"/></a>
+                
+            </div>
+        </section>
+    </div>
+    <div class="col-xs-8 col-sm-4 col-md-12">
+
+        <!-- Short About -->
+        <section>
+            <!--<br><br>-->
+            <h5><a href="/about/">ABOUT ME</a></h5>
+            <div class="short-about">
+
+
+                
+                <p>Hello, I am Mori and I&#39;m working on Image processing. I obtained my PhD in artificial intelligence (AI) in May, 2021; since then I&#39;ve been doing my postdoc at the 
+                <a href="https://www.uef.fi/en/unit/ai-virtanen-institute-for-molecular-sciences">A.I. Virtanen Institute</a>, Finland.
+                </p>
+                <p>Find my latest work here, and subscribe the RSS feed for updates.
+                    
+                            <a href="/about/" title="More about me"> More. </a>
+                    
+                </p>
+                
+            </div>
+        </section>
+
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-12">
+
+        <!-- Featured Tags -->
+        
+        <hr class="hidden-sm">
+        <section>
+            <!-- no hr -->
+           <h5><a href="">FEATURED TAGS</a></h5>
+            <div class="tags">
+        
+                
+                <a href="" title="vision"
+                   rel="1">vision</a>
+                
+
+                
+                <a href="" title="GAN"
+                   rel="1">GAN</a>
+                
+
+
+                <a href="" title="Multiscale"
+                   rel="2">Multiscale</a>
+                
+                
+                
+                <a href="" title="Pattern"
+                   rel="1">Pattern</a>
+
+
+
+                <a href="" title="CNN"
+                   rel="1">DNN</a>
+
+            </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>GROUPS</h5>
+        <ul class="list-inline">
+
+            <ul><li><a href="https://www.uef.fi/en/unit/ai-virtanen-institute-for-molecular-sciences" target="_blank">A.I. Virtanen Institute, Finland</a></li></ul>
+            
+            <ul><li><a href="https://www.plant-phenomics.ac.uk/" target="_blank">IBERS, UK</a></li></ul>
+
+            <ul><li><a href="https://imed.nimte.ac.cn/" target="_blank">Intelligent Medical Imaging (iMED), China</a></li></ul>
+
+
+        </ul>
+        
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="text-center">
+                    <ul class="list-inline">
+    
+
+
+
+        <li>
+            <a target="_blank" href="https://scholar.google.com/citations?user=yhXUlXsAAAAJ">
+                <span class="fa-stack fa-lg">
+                    <img alt="" src="/logo/icon-scholar.svg" width="45" height="45" />
+                </span>
+            </a>
+        </li>
+    
+        <li>
+            <a target="_blank" href="https://github.com/mogvision">
+                <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+            </a>
+        </li>
+
+
+        <li>
+            <a target="_blank" href="https://www.researchgate.net/profile/Morteza-Ghahremani-3">
+                <span class="fa-stack fa-lg">
+                    <img alt="" src="/logo/icon-researchgate.svg" width="45" height="45" />
+                </span>
+            </a>
+        </li>
+
+
+        <li>
+            <a target="_blank" href="http://linkedin.com/in/morteza-ghahremani-3a040421a">
+                <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                </span>
+            </a>
+        </li>
+
+
+        <li>
+            <a class="contact-link EmailLink" href="mailto:morteza.ghahremani.b@gmail.com">
+                <span class="fa-stack fa-lg">
+                    <img alt="" src="/logo/icon-mail.svg" width="47" height="47" />
+                </span>
+            </a>
+        </li>
+
+</ul>
+                </div>
+                <p class="copyright text-muted">
+                    &copy; mogvision 2022
+                    <br>
+                    Theme by <a target="_blank" rel="noopener" href="http://huangxuan.me">Hux</a>
+                    . 
+                    Modified by <a href="/">mogvision</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/hux-blog.js"></script>
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+    <script>
+        // Originial
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-85798112-1', 'auto');
+        ga('send', 'pageview');
+
+        $('body').on('click', 'a', function (e) {
+            var _ = $(this);
+            if(_[0].pathname.indexOf('.') > -1 && _[0].hostname === window.location.hostname){
+
+                if (_.data('prevented') === 1)
+                {
+                    _.removeData("prevented");
+                    return true;
+                }
+
+                e.preventDefault();
+                _.data('prevented', 1);
+                window.__gacb = function () {
+                    _[0].click();
+                };
+                console.log('Download:', _[0].pathname);
+                ga('send', 'pageview', {
+                    'page': _[0].pathname,
+                    'hitCallback': function() {
+                        window.__gacb();
+                    }
+                })
+                return false;
+            }
+        });
+
+
+    </script>
+
+
+
+
+<!-- Side Catalog -->
+
+
+<!-- Image to hack wechat -->
+<!-- img src="http://testonly196.github.io/img/icon_wechat.png" width="0" height="0" />-->
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

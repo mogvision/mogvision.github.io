@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<!-- deepPod -->
+
+<!--  <span class="math inline">\( \)</span> -->
+<!--  <span class="math display">\[ \]</span>-->
+
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Welcome to mogvision blog. Here you will find my tutorials, papers, programming experiments, and more.">
+    <meta name="keyword"  content="mogvision, paper, programming, code">
+    <link rel="shortcut icon" href="/logo/shortcut.png">
+   <link rel='alternate' type='application/rss+xml' title='RSS' href='/atom.xml'>  
+
+    <title>
+        
+          MOGvision
+        
+    </title>
+
+    <link rel="canonical" href="http://testonly196.github.io/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/hux-blog.css">
+
+
+    <!-- Pygments Highlight CSS -->
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+
+    <!-- Hamburgers css -->
+    
+<link rel="stylesheet" href="/css/hamburgers.min.css">
+
+
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China -->
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button class="hamburger hamburger--spring navbar-toggle" type="button">
+              <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+              </span>
+            </button>
+            <!--<button type="button" class="navbar-toggle">-->
+            <!--<span class="sr-only">Toggle navigation</span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--<span .intro-headerclass="icon-bar"></span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--</button>-->
+            
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+    
+                    
+                    <li>
+                        <a href="/about/">About</a>
+                    </li>
+                    
+                    
+
+
+                    
+                    <li>
+                        <a href="/contact/">Contact</a>
+                    </li>
+                    
+                    
+
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e) {
+        if ($navbar.className.indexOf('in') > 0) {
+            // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function () {
+                // prevent frequently toggle
+                if ($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            }, 400)
+
+            var pos = $toggle.className.indexOf("is-active");
+            if (pos > 0) {
+                $toggle.className = $toggle.className.substr(0, pos);
+            }
+
+
+        } else {
+            // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+            $toggle.className += " is-active";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Page Header --> <!-- style="background-image: url('/img/home-bg.jpg')" -->
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <div class="site-heading">
+                    <h1>
+                    <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+                    </script>
+                    <br>
+                    <br>
+                    <h1 style="font-size: xx-large">DeepPod: a CNN-based quantification of <br>Plants' Fruits<br></h1>
+
+                    <a href="https://academic.oup.com/gigascience/article/9/3/giaa012/5780255">
+                        <img alt="deepPod" src="/logo/gigascience.png"
+                        width="120" height="50">
+                    </a>
+
+                    <a href="https://github.com/AzmHmd/DeepPod.git">
+                        <img alt="deepPod" src="/logo/github.png"
+                        width="60" height="60">
+                    </a>
+
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        March 22, 2022
+                    </h1>
+                    <!--<hr class="small">-->
+                    <span class="subheading"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+</header>
+
+
+
+
+
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                col-sm-12
+                col-xs-12
+                post-container">
+
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
+
+                <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+                </script>
+                    
+
+<!--  <span class="math inline">\( \)</span> -->
+<!--  <span class="math display">\[ \]</span>-->
+
+
+                <p>Photometrics (imaging followed by computationally assisted feature extraction and measurement) promises to revolutionize biological research and agricultural production systems. Automation of workflows remains a key challenge in the scaling of these approaches to cope with the requirements of large genetic experiments or, indeed, food production systems. Phenotyping aims to measure observable plant features, often as a response to environmental cues and/or variability between individuals. Traditionally, phenotyping has been a labour-intensive and costly process, usually manual and often destructive. High-throughput phenotyping technologies aim to address this problem by the use of non-destructive approaches either in glasshouses or directly in the field integrating imaging, robotics, spectroscopy, high-tech sensors, and high-performance computing.
+                </p>
+                <p>This work demonstrates that deep learning can be used to estimate fruit number from images. In particular, we have developed DeepPod, a framework for Arabidopsis silique detection that involves a deep neural network for patch-based classification and an object reconstructor for silique localization and counting. The framework has been validated using a separate dataset of 2,408 images from biological experiments. This allowed the analysis of large numbers of plants' inflorescences in an accurate and effective way, providing a cost-effective alternative to manual counting.
+                </p>
+
+                <h3>Building CNN classifiers</h3>
+                <p>
+                DenseNet is a model notable for its key characteristic of bypassing signals from preceding layers to subsequent layers that enforces optimal information flow in the form of feature maps. Amongst DenseNet variants, DenseNet-Basic is a successful model proposed for the image classification challenges. Hereafter, DenseNet-Basic is referred to as “DenseNet.” A simple DenseNet is made up of a total of L layers, while each layer is responsible for implementing a specific non-linear transformation, which is a composite function of different operations such as batch normalization, rectified linear unit, pooling, and convolution. Within a dense block that consists of multiple densely connected layers with such composite functions, all layers are directly connected to each other, and each layer receives inputs (i.e., feature maps) from all preceding layers (as illustrated in the middle row of <strong>Figure 1</strong>). The number of feature maps generated from the composite function layer is usually fixed and is called the growth rate (k) for the DenseNet. To facilitate down-sampling for CNNs, the network used for our experiment consisted of multiple dense blocks. These dense blocks were connected to each other through transition layers (composed of a batch normalization layer, a 1 × 1 convolutional layer, a dropout layer, and a 2 × 2 average pooling layer as shown in the bottom row of <strong>Figure 1</strong>).
+                </p>
+
+<figure>
+    <img src="/deepPod/fig1.jpeg" class="" style="width:75%">
+    <figcaption><strong>Figure 1</strong>. The DenseNet-Basic architecture used for patch-based Arabidopsis structural part classification. The feature map sizes in the 3 dense blocks were 32 × 32, 16 × 16, and 8 × 8, respectively. Image courtesy of <sup id="fnref:1"><a href="#fn:1"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&#65282;DeepPod: a convolutional neural network based quantification of fruit number in Arabidopsis. GigaScience. 2020 Mar;9(3):giaa012.&#65282;">[1]</span></a></sup>.
+    </figcaption>
+</figure>
+                <p>
+                The growth rate (k) was set to 12 for all dense blocks in order to generate narrow layers within the overall DenseNet structure (i.e., 3 dense blocks with equal number of layers and 2 transition layers). A relatively small growth rate (of 12) was found to be sufficient to obtain satisfying results on our target datasets. The initial convolution layer incorporated 16 convolutions of size 3 × 3 on the input images. The number of feature maps in all other layers follows the setting for k.
+                At the end of the last dense block (third dense block), a global average pooling was performed to minimize over-fitting by reducing the total number of parameters in the model. The final Softmax classifier of 4 output nodes will predict the probability for each class on the basis of the extracted features in the network.
+                </p>
+
+                <p>
+                <strong>Image reconstruction</strong>:  Given the classification of various patches in an image, post-processing can be applied to reconstruct the image and detect probable silique appearances. The plant regions are first identified from the background (including borders) using simple thresholding methods. Then the plant regions are further segmented into 4 classes based on labelling of the patches of interest. Because the patches for a test image are generated with 50% overlap along both the horizontal and vertical directions, each patch consists of 4 squares of equal size (16 × 16), called sub-patches. Each sub-patch has 4 class predictions from 4 adjacent patches, the final decision is inferred through majority vote, and the label for each pixel in the sub-patch was determined accordingly (<strong>Figure 2</strong>). In case of a tied vote for several classes, the average probability of those classes for the image will be assigned to the sub-patch and its pixels.</p>
+
+<figure>
+    <img src="/deepPod/fig2.jpeg" class="" style="width:85%">
+    <figcaption><strong>Figure 2</strong>. Flow chart of the sub-patch labelling step for image reconstruction. Image courtesy of <sup id="fnref:1"><a href="#fn:1"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&#65282;DeepPod: a convolutional neural network based quantification of fruit number in Arabidopsis. GigaScience. 2020 Mar;9(3):giaa012.&#65282;">[1]</span></a></sup>.
+    </figcaption>
+</figure>
+
+                <h3>Experimental Results</h3>
+
+<figure>
+    <img src="/deepPod/fig3.jpeg" class="" style="width:75%">
+    <figcaption><strong>Figure 2</strong>. The histograms of errors in silique count prediction for the LeNet and DenseNet models.
+. Image courtesy of <sup id="fnref:1"><a href="#fn:1"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&#65282;DeepPod: a convolutional neural network based quantification of fruit number in Arabidopsis. GigaScience. 2020 Mar;9(3):giaa012.&#65282;">[1]</span></a></sup>.
+    </figcaption>
+</figure>
+
+
+
+
+
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+  vertical-align: middle;
+  margin-bottom: 5px;
+}
+</style>
+<table style="border:1.8px solid black;margin-left:auto;margin-right:auto;width:70%" >
+<caption><strong>Table 1</strong>. Performance of patch-based classification on the testing images for model development using DenseNet network (Total precision = 91.8%; total recall = 92%).</caption>
+    <td>Predicted</td>
+    <td>Actual<td><td><td>
+    <td>Precision (%)
+    <td>Recall (%)
+  </tr>
+  <tr>
+    <td><td>Base  <td> Body  <td>  Stem   <td> Tip
+  </tr>
+<tr>
+</tr>
+<td>Base  <td>  392   <td>  4 <td>  14 <td> 2 <td>  93.6  <td>  95.1 
+<tr>
+</tr>
+<td>Body  <td>  15 <td> 290   <td>  13 <td> 33 <td> 93.2   <td> 82.6 
+<tr>
+</tr>
+<td>Stem  <td>  11 <td> 14 <td> 290    <td> 2 <td>  91.5  <td>  91.5 
+<tr>
+</tr>
+<td>Tip  <td>   1  <td> 3  <td> 0  <td> 295   <td>  88.9  <td>  98.7 
+</tr>
+</table>
+</p>
+
+
+
+<figure>
+    <img src="/deepPod/fig4.jpeg" class="" style="width:85%">
+    <figcaption><strong>Figure 2</strong>. Three example results of labelling on the reconstructed plant images based the DenseNet patch-based classification. Tips, bodies, bases, and stems are indicated in red, green, blue, and white, respectively. Image courtesy of <sup id="fnref:1"><a href="#fn:1"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&#65282;DeepPod: a convolutional neural network based quantification of fruit number in Arabidopsis. GigaScience. 2020 Mar;9(3):giaa012.&#65282;">[1]</span></a></sup>.
+    </figcaption>
+</figure>
+
+
+
+
+                <h3 id="References"><a href="#References" class="headerlink" title="References">
+                </a>Reference</h3>
+                <div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">
+                <!-- paper -->
+                [1] </span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">DeepPod: a convolutional neural network based quantification of fruit number in Arabidopsis. GigaScience. 2020 Mar;9(3):giaa012.
+                    <strong><a href="https://academic.oup.com/gigascience/article/9/3/giaa012/5780255">paper</a></strong><a href="#fnref:1" rev="footnote">, 
+                    <strong><a href="https://github.com/AzmHmd/DeepPod.git" src="/logo/github.png">code</a>,
+                    </strong><a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px"></div>
+                <hr>
+
+                <!--
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>      
+                 -->      
+
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus start 
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "testonly196";
+    var disqus_identifier = "http://testonly196.github.io/ADL/";
+    var disqus_url = "http://testonly196.github.io/ADL/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+-->
+<!-- disqus end -->
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <!-- Footer -->
+
+</body>
+
+</html>

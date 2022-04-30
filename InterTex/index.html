@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<!-- InterTex -->
+
+<!--  <span class="math inline">\( \)</span> -->
+<!--  <span class="math display">\[ \]</span>-->
+
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Welcome to mogvision blog. Here you will find my tutorials, papers, programming experiments, and more.">
+    <meta name="keyword"  content="mogvision, paper, programming, code">
+    <link rel="shortcut icon" href="/logo/shortcut.png">
+
+    <title>
+        
+          MOGvision
+        
+    </title>
+
+    <link rel="canonical" href="http://testonly196.github.io/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/hux-blog.css">
+
+
+    <!-- Pygments Highlight CSS -->
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+
+    <!-- Hamburgers css -->
+    
+<link rel="stylesheet" href="/css/hamburgers.min.css">
+
+
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China -->
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button class="hamburger hamburger--spring navbar-toggle" type="button">
+              <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+              </span>
+            </button>
+            <!--<button type="button" class="navbar-toggle">-->
+            <!--<span class="sr-only">Toggle navigation</span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--<span .intro-headerclass="icon-bar"></span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--</button>-->
+            
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+    
+                    
+                    <li>
+                        <a href="/about/">About</a>
+                    </li>
+                    
+                    
+
+
+                    
+                    <li>
+                        <a href="/contact/">Contact</a>
+                    </li>
+                    
+
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e) {
+        if ($navbar.className.indexOf('in') > 0) {
+            // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function () {
+                // prevent frequently toggle
+                if ($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            }, 400)
+
+            var pos = $toggle.className.indexOf("is-active");
+            if (pos > 0) {
+                $toggle.className = $toggle.className.substr(0, pos);
+            }
+
+
+        } else {
+            // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+            $toggle.className += " is-active";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Page Header --> <!-- style="background-image: url('/img/home-bg.jpg')" -->
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <div class="site-heading">
+                    <h1>
+                    <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+                    </script>
+                    <br>
+                    <br>
+                    <h1 style="font-size: xx-large">InterTex: Interwoven Texture-Based <br>Description of Keypoints</h1>
+
+                    <a href="https://www.sciencedirect.com/science/article/abs/pii/S003132032100008X">
+                        <img alt="InterTex" src="/logo/pr.jpg"
+                        width="100" height="120">
+                    </a>
+
+                    <a href="https://github.com/mogvision/InterTex-Feature-Descriptor/">
+                        <img alt="InterTex" src="/logo/github.png"
+                        width="60" height="60">
+                    </a>
+
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        March 22, 2022
+                    </h1>
+                    <!--<hr class="small">-->
+                    <span class="subheading"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+</header>
+
+
+
+
+
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                col-sm-12
+                col-xs-12
+                post-container">
+
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
+
+                <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+                </script>
+                    
+
+<!--  <span class="math inline">\( \)</span> -->
+<!--  <span class="math display">\[ \]</span>-->
+
+
+                <p>Thanks to technological development, we are currently facing a large volume of images that need to be processed and evaluated automatically with little human intervention. The link between computer vision and other disciplines is narrowing, and computer vision is highly in demand in a large number of applications from 2D image processing [1] to 3D including simultaneous localization and mapping (SLAM), structure from motion (SfM), robotics, etc. Feature detection and feature description are the preliminary steps of many computer vision applications. As their names reflect their functionalities, a local feature detector aims to detect distinctive key-points/interest points/feature points in images and they are then assigned signatures by a local feature descriptor. The signatures help to find corresponding regions/points in different images as required by the subsequent tasks such as SLAM and SfM. Developing fast descriptors with a high match-rate is highly demanding. This becomes more challenging when we deal with smooth/texture-less images or photometric and geometric changes: such complicated images usually drastically degrade the performance of feature descriptors.</p>
+
+                <p>Despite the vast literature on feature descriptors, few of them are both highly computationally efficient and reliable and can always achieve the best performance simultaneously across datasets with different characteristics. In this paper, we are seeking to assign each key-point a unique signature even though the key-points are so close to each other; it is obvious that adjacent key-points usually share a common area of pixels and this increases the ambiguity when matching their representations. To this end, firstly we develop three basic principles that a robust descriptor should follow and then propose a new strategy to design a robust descriptor. Specifically, we consider a local window/region around the interest point and then divide it into 36 bins of length 8 pixels in such a way that the total size of the window is just 28-by-28 pixels. Any two adjacent bins are interwoven by 50% in space, where all the pixels used for the representation of each bin in the interwoven area are different from those for the representation of its adjacent ones. Interweaving adjacent bins aims at mixing smooth bins with the textured ones. This increases the area of coverage and the probability of having unique texture information inside each bin and subsequently improves the expressiveness of the description. Bins are encoded by gradient magnitude and divergence operators, which provide complementary texture information for the bins. In order to make sure that these parameters are powerful and stable in encoding local image regions, we propose a global-wise analysis instead of using traditional pixel-wise strategy. To further deal with noise, illumination change and distortions and emphasise the nearby pixels of the key point, the measurements are then weighted by Gaussian functions of their distances and finally normalized using the Hellinger kernel. The storage required for representing each key-point is 72 floats only. Henceforth, for the sake of simplicity we abbreviate our interwoven texture-based descriptor as ‘InterTex’. According to the experimental results over several publicly accessible datasets and a comparative study between the proposed and the selected state-of-the-art feature descriptors, InterTex is the fastest one that can successfully deal with noisy, distorted, illumination varied and texture-limited images.</p>
+
+                <h3>Principles</h3>
+
+                <ul><li><strong>Principle I</strong>: The support region around a key-point should not be too small in which case the representation is not discriminative, nor should it be too large in which case we lose the concept of the locality and the uniqueness of the region.</ul></li>
+
+                <ul><li><strong>Principle II</strong>: A feature descriptor should analyze features of a group of pixels rather than that of each individual pixel.</ul></li>
+
+                <ul><li><strong>Principle III</strong>: A feature descriptor should be robust as much as possible to undesirable external factors introduced in the imaging and storing process.</ul></li>
+
+
+                <h3>Architecture of InterTex </h3>
+
+                <p>Of critical concern for partitioning is the expense of texture information loss. The partitioning strategy of the traditional methods generates bins that often do not contain sufficient texture information. Dependent on the size of the bins, they generally contain either pure texture or pure texture-less patterns. In this study, we propose an interwoven partitioning strategy. Slow change of pixels in intensity indicates that adjacent pixels inside each bin share the same texture pattern. As adjacent pixels usually do not introduce distinctive information, the measurement operators can be applied to every other pixel rather than to all the pixels continuously. Thus, the step size is increased from 1 (which is taken by the traditional descriptors) to 2 in our descriptor and the size of the bins is increased twice along each axis. To this end, we design two complementary windows in such a way that any two adjacent bins are interwoven. The windows are depicted in <strong>Figure 1(a)</strong>. The white and colored pixels are treated differently and they are used to represent different bins. The pixels used to represent a bin are completely different from those for the representation of the others. The measurements for each bin are calculated over the colored pixels only. The interwoven area between any two adjacent bins is 50% in space and they cover different sub-regions [<strong>Figure 1(b)</strong>]. The interwoven bins do not share identical pixels at all but do share similar texture patterns. In this way, each bin becomes more independent on its adjacent ones. Interweaving bins render texture information of adjacent bins more distinctive and less repetitive in the overlapped regions, yielding unique encoding and less ambiguity in matching.</p>
+
+<figure>
+    <img src="/InterTex/intertex.jpg" class="" style="width:60%">
+    <figcaption><strong>Figure 1</strong>.  Proposed interwoven windows. (a) The window (left-hand side) and its complementary one (right-hand side) applied to two adjacent bins; (b) Any two horizontally or vertically adjacent bins are interwoven by 50% in space. Image courtesy of <sup id="fnref:1"><a href="#fn:1"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&#65282;Interwoven texture-based description of interest points in images. Pattern Recognition. 2021 May 1;113:107821.&#65282;">[1]</span></a></sup>.
+    </figcaption>
+</figure>
+            
+
+                <p>
+                Our experiments have shown that a small area around a pixel is not able to show the exact behavior of divergence for the given pixel. Pixel-wise use involves just 4 pixels (or 8 pixels if the diagonal neighbours are considered) in computation. Often, a small number of pixels is not sufficient to reflect the exact spatial pattern. One possible solution is to apply the divergence operator to a group of pixels rather than to each individual pixel, as stated by Principle II above. This strategy ensures that engaging a suitable number of pixels in the computation leads to a more stable representation of the texture patterns. Images often contain noise and distortions. Compared to pixel-wise analysis, group-wise analysis is capable of representing the stable features of a region in the spirit of Principle II above. If a region contains pixels with Independent and Identically Distributed (IID) noise, the probability distribution of the average of IID variables with finite variance approaches a normal distribution with the sigma of according to the central limit theorem. We examine the robustness of pixel- and group-wise analyses against noise by adding 5% zero-mean white Gaussian noise to the sample image. The results verify that the group-wise approach is less susceptible to noise compared to the pixel-wise approach [<strong>Figure 2</strong>.].</p>
+
+                <p>In summary, the structural properties of a group of pixels can provide stable features of a region and they can effectively reduce the side effects of noise and distortion. We use Haar wavelets for group-wise computation of the derivatives and they are implemented via an integral image and box filters. Initially we form the integral image and then compute the Haar kernels via the box filters of size ‘4 x scales’ along each axis.
+                </p>
+<figure>
+    <img src="/InterTex/noise.jpg" class="" style="width:99%">
+    <figcaption><strong>Figure 2</strong>. The arrangement of the bins in InterTex. The interaction of a sample bin (the 8th bin) with its adjacent neighbours is shown in detail. Image courtesy of <sup id="fnref:1"><a href="#fn:1"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&#65282;Interwoven texture-based description of interest points in images. Pattern Recognition. 2021 May 1;113:107821.&#65282;">[1]</span></a></sup>.
+    </figcaption>
+</figure>
+
+
+
+                <h3>Experimental Results</h3>
+                I provide a summary of results below. More details can be found at <sup id="fnref:1"><a href="#fn:1"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&#65282;Interwoven texture-based description of interest points in images. Pattern Recognition. 2021 May 1;113:107821.&#65282;">[1]</span></a></sup>.
+
+                <ul><li><h4>Homography datasets</h4> </li></ul>
+<figure>
+    <img src="/InterTex/results1.jpg" class="" style="width:75%">
+    <figcaption><strong>Figure 3</strong>. Evaluation results of different descriptors for the homography datasets including: Illumination (I) and Viewpoint (V) of the HSequences benchmark (HSeq.); Distortion (D) and Viewpoint & Rotation (V&R) of Heinly and Oxford benchmark (H&O); and WISW benchmark with viewpoint changes. Image courtesy of <sup id="fnref:1"><a href="#fn:1"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&#65282;Interwoven texture-based description of interest points in images. Pattern Recognition. 2021 May 1;113:107821.&#65282;">[1]</span></a></sup>.
+    </figcaption>
+</figure>
+            
+
+        <ul><li><h4>Visual Localization</h4> </li></ul>
+
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+  vertical-align: middle;
+  margin-bottom: 5px;
+}
+</style>
+<table style="border:1.8px solid black;margin-left:auto;margin-right:auto;width:80%" >
+<caption><strong>Table 1</strong>. Evaluation results of different descriptors for visual localization on <strong>Aachen</strong> dataset.</caption>
+    <td>Descriptor</td>
+    <td>(0.5 m, &ang;2 deg.)</td>
+    <td>(1 m, &ang;5 deg.)</td>
+    <td>(5 m, &ang;10 deg.)</td>
+  </tr>
+<tr>
+<td>Upright R-SIFT <td> 36.7   <td> 54.1  <td>  72.5
+<tr>
+</tr>
+<td>HardNet <td>37.9 <td>   54.0   <td> 75.5
+<tr>
+</tr>
+<td>GeoDesc <td>38.1   <td> 54.7  <td> 73.4
+<tr>
+</tr>
+<td>CD <td> 39.2   <td> 55.0  <td>  73.8
+<tr>
+</tr>
+<td>D2-Net <td> 39.8   <td> 55.1  <td>  74.5
+<tr>
+</tr>
+<td>SP <td> 38.7   <td> 54.9  <td>  <strong>76.3 </strong>
+<tr>
+</tr>
+<td>Upright InterTex  <td>  <strong>40.2 </strong>  <td>  <strong>55.8 </strong>  <td>   74.2
+</tr>
+</table>
+</p>
+<figure>
+    <img src="/InterTex/results2.jpg" class="" style="width:99%">
+    <figcaption><strong>Figure 4</strong>.  Feature matching results (after applying RANSAC) of different descriptors over data with changes in time and illumination. From the left to the right: R-SIFT, GeoDesc, D2-Net and proposed InterTex. Image courtesy of <sup id="fnref:1"><a href="#fn:1"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&#65282;Interwoven texture-based description of interest points in images. Pattern Recognition. 2021 May 1;113:107821.&#65282;">[1]</span></a></sup>.
+    </figcaption>
+</figure>
+
+
+        <ul><li><h4>SfM</h4> </li></ul>
+<figure>
+    <img src="/InterTex/results3.jpg" class="" style="width:99%">
+    <figcaption><strong>Figure 5</strong>.  The sparse (left-hand side) and dense (right-hand side) reconstruction results (bottom row) of R-SIFT and InterTex for two sets of texture-limited images (top row) from the ETH3D dataset. Image courtesy of <sup id="fnref:1"><a href="#fn:1"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&#65282;Interwoven texture-based description of interest points in images. Pattern Recognition. 2021 May 1;113:107821.&#65282;">[1]</span></a></sup>.
+    </figcaption>
+</figure>
+
+
+        <ul><li><h4>Illumination changes</h4> </li></ul>
+
+<table style="border:1.8px solid black;margin-left:auto;margin-right:auto;width:80%" >
+<caption><strong>Table 2</strong>.The recall results at 100% of precision for HTMap using different feature descriptors.</caption>
+    <td>Descriptor</td>
+    <td>Detector</td>
+    <td> New College</td>
+    <td>KITTI 00</td>
+    <td>KITTI 05</td>
+  </tr>
+<tr>
+<td>ORB<td> FAST  <td> 78.3 <td>   71.7  <td>  90.1 <td>   75.2
+<tr>
+</tr>
+<td>R-SIFT <td> SIFT  <td>  80.2  <td> 74.2   <td> 90.5 <td>   77.3
+<tr>
+</tr>
+<td>SP <td> SP <td> 81.3   <td> <strong>76.6</strong> <td>   89.4  <td>  76.2
+<tr>
+</tr>
+<td>InterTex  <td>  SIFT  <td>  <strong>81.7</strong>  <td>  76.3  <td>  <strong>91.3</strong>   <td> <strong>78.4</strong>
+</tr>
+</table>
+</p>
+
+        <ul><li><h4>Run time and storage analyses</h4> </li></ul>
+
+<table style="border:1.8px solid black;margin-left:auto;margin-right:auto;width:80%" >
+<caption><strong>Table 3</strong>.The required storage, extraction time and matching run-time per key-point of different descriptors.</caption>
+    <td>Descriptor</td>
+    <td>Storage </td>
+    <td> Platform</td>
+    <td>Extraction(micro sec per kp)</td>
+    <td>Matching (ms)</td>
+  </tr>
+<tr>
+<td>R-SIFT <td> 128 floats  <td>CPU <td>69  <td>256
+<tr>
+</tr>
+<td>SURF   <td> 64 floats <td>  CPU<td> 28 <td>194
+<tr>
+</tr>
+<td>BinBoost   <td> 256 bits  <td>  CPU<td> 190 <td><strong>52</strong>
+<tr>
+</tr>
+<td>LATCH <td>  512 bits   <td> CPU<td> 41 <td> 85
+<tr>
+</tr>
+<td>FREAK  <td> 512 bits   <td> CPU<td> 18  <td>86
+<tr>
+</tr>
+<td>MIOP   <td> 128 floats <td> CPU <td>104 <td>254
+<tr>
+</tr>
+<td>HardNet<td> 128 floats <td> GPU <td>15 <td> 264
+<tr>
+</tr>
+<td>GeoDesc<td> 128 floats  <td>GPU<td> 101<td> 270
+<tr>
+</tr>
+<td>CD <td> 128 floats<td>  GPU<td>234<td> 273
+<tr>
+</tr>
+<td>D2-Net <td> 512 floats <td> GPU <td>43 <td> 651
+<tr>
+</tr>
+<td>SP <td> 256 floats <td> GPU<td> 29 <td> 376
+<tr>
+</tr>
+<td>InterTex  <td>  72 floats  <td> CPU <td><strong>12</strong> <td> 201
+</tr>
+</table>
+</p>
+
+
+
+
+
+                <h3 id="References"><a href="#References" class="headerlink" title="References">
+                </a>Reference</h3>
+                <div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">
+                <!-- paper -->
+                [1] </span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Interwoven texture-based description of interest points in images. Pattern Recognition. 2021 May 1;113:107821.
+                    <strong><a href="https://www.sciencedirect.com/science/article/abs/pii/S003132032100008X">paper</a></strong><a href="#fnref:1" rev="footnote">, 
+                    <strong><a href="https://github.com/mogvision/InterTex-Feature-Descriptor/" src="/logo/github.png">code</a>,
+                    </strong><a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px"></div>
+                <hr>
+
+                <!--
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>      
+                 -->      
+
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus start 
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "testonly196";
+    var disqus_identifier = "http://testonly196.github.io/ADL/";
+    var disqus_url = "http://testonly196.github.io/ADL/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+-->
+<!-- disqus end -->
+
+
+
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <!-- Footer -->
+
+</body>
+
+</html>

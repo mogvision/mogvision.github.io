@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- FFD -->
+<!--  <span class="math inline">\( \)</span> -->
+<!--  <span class="math display">\[ \]</span>-->
+
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Welcome to mogvision blog. Here you will find my tutorials, papers, programming experiments, and more.">
+    <meta name="keyword"  content="mogvision, paper, programming, code">
+    <link rel="shortcut icon" href="/logo/shortcut.png">
+
+    <title>
+        
+          MOGvision
+        
+    </title>
+
+    <link rel="canonical" href="http://testonly196.github.io/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/hux-blog.css">
+
+
+    <!-- Pygments Highlight CSS -->
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+
+    <!-- Hamburgers css -->
+    
+<link rel="stylesheet" href="/css/hamburgers.min.css">
+
+
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China -->
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button class="hamburger hamburger--spring navbar-toggle" type="button">
+              <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+              </span>
+            </button>
+            <!--<button type="button" class="navbar-toggle">-->
+            <!--<span class="sr-only">Toggle navigation</span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--<span .intro-headerclass="icon-bar"></span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--</button>-->
+            
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                    
+    
+                    
+                    <li>
+                        <a href="/about/">About</a>
+                    </li>
+                    
+                    
+
+
+                    
+                    <li>
+                        <a href="/contact/">Contact</a>
+                    </li>
+                    
+                    
+
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e) {
+        if ($navbar.className.indexOf('in') > 0) {
+            // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function () {
+                // prevent frequently toggle
+                if ($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            }, 400)
+
+            var pos = $toggle.className.indexOf("is-active");
+            if (pos > 0) {
+                $toggle.className = $toggle.className.substr(0, pos);
+            }
+
+
+        } else {
+            // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+            $toggle.className += " is-active";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Page Header --> <!-- style="background-image: url('/img/home-bg.jpg')" -->
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <div class="site-heading">
+                    <h1>
+                    <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+                    </script>
+                    <br>
+                    <h1 style="font-size: xx-large">FFD: Fast Feature Detector</h1>
+
+                    <a href="https://ieeexplore.ieee.org/abstract/document/9292438">
+                        <img alt="FFD" src="/logo/ieee.png"
+                        width="120" height="50">
+                    </a>
+
+                    <a href="https://arxiv.org/abs/2012.00859">
+                        <img alt="FFD" src="/logo/arxiv.png"
+                        width="120" height="60" style="margin: 0px 20px 0px 20px;">
+                    </a>
+
+                    <a href="https://github.com/mogvision/FFD/">
+                        <img alt="FFD" src="/logo/github.png"
+                        width="60" height="60">
+                    </a>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        April 22, 2022
+                    </h1>
+                    <!--<hr class="small">-->
+                    <span class="subheading"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+</header>
+
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                col-sm-12
+                col-xs-12
+                post-container">
+
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
+
+                <p>Feature detection is the process of extracting salient feature points from an image. The feature points could be blobs, corners or even edges. Feature detection finds numerous applications in image processing and computer vision such as visual localization and 3D reconstruction. A good feature detector must provide reliable interest points/keypoints that are scale-invariant, highly distinguishable, robust to noise and distortions, valid with high repeatability rate, well localized, of easy implementation and computationally fast. For instance, the intensity variation should not change the location of keypoints (<strong>Figure 1</strong>).
+
+<figure>
+    <img src="/FFD/ffd_im1.PNG" class="" style="width:75%">
+    <figcaption><strong>Figure 1</strong>. The location of FFD's keypoints<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&#65282;FFD: Fast Feature Detector, IEEE Transactions on Image Processing 2021,&#65282;">
+    [1]</span></a></sup> in (left) distortion-free and (right) distorted images.
+    </figcaption>
+</figure>
+
+
+                <p>In this work, it is shown that robust and accurate keypoints exist in the specific scale-space domain. To this end, we first formulate the superimposition problem into a mathematical model and then derive a closed-form solution for multiscale analysis. The model is formulated via difference-of-Gaussian (DoG) kernels in the continuous scale-space domain, and it is proved that setting the scale-space pyramid’s blurring ratio and smoothness to 2 and 0.627, respectively, facilitates the detection of reliable keypoints. For the applicability of the proposed model to discrete images, we discretize it using the undecimated wavelet transform and the cubic spline function. Theoretically, the complexity of our method is less than 5% of that of the popular baseline Scale Invariant Feature Transform (SIFT). Extensive experimental results show the superiority of the proposed feature detector over the existing representative hand-crafted and learning-based techniques in accuracy and computational time.</p>
+
+                <p>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+  vertical-align: middle;
+  margin-bottom: 5px;
+}
+</style>
+
+<table style="border:1.8px solid black;margin-left:auto;margin-right:auto;width:75%" >
+<caption><strong>Table 1</strong>. The computational time in milliseconds of different feature detectors over an image with 800×640 pixels (The average time over 20 runs is reported here)</caption>
+  <tr>
+    <td>Feature Detector</td>
+    <td>Category</td>
+    <td>Platform</td>
+    <td>Run Time (ms)</td>
+  </tr>
+
+<tr>
+<td>SIFT <td>Multiscale<td> CPU<td> 552
+</tr>
+<tr>
+<td>SURF<td> Multiscale<td> CPU <td>159
+</tr>
+<tr>
+<td>BRISK <td>Multiscale <td>CPU <td>147
+</tr>
+<tr>
+<td>HarrisZ <td>Multiscale<td> CPU <td>2700
+</tr>
+<tr>
+<td>KAZE <td>Multiscale<td> CPU <td>1500
+</tr>
+<tr>
+<td>AKAZE <td>Multiscale <td>CPU <td>438
+</tr>
+<tr>
+<td>DNet <td>Deep learning <td>GPU <td>1300
+</tr>
+<tr>
+<td>TILDE <td>Deep learning <td>CPU <td>12100
+</tr>
+<tr>
+<td>TCDET <td>Deep learning<td> GPU <td>4100
+</tr>
+<tr>
+<td>SuperPoint <td>Deep learning <td>GPU <td>54
+</tr>
+<tr>
+<td>D2Net <td>Deep learning <td>GPU<td> 950
+</tr>
+<tr>
+<td>FFD (ours)<td>Multiscale <td>CPU<td> <strong>29</strong>
+</tr>
+</table>
+</p>
+
+                <p>
+                Experimental results and a comparative study with state-of-the-art techniques over several publicly accessible datasets and example applications showed that FFD can detect more highly reliable feature points in the shortest time, which makes it more suitable for real-time applications. A summary of the results is attached below.
+                </p>
+
+                <ul><li><h4>3D Reconstruction from Multiview images </h4></li></ul>
+<figure>
+    <img src="/FFD/3d.png" class="" style="width:95%">
+    <figcaption><strong>Figure 2</strong>.The reprojection error (left) and the mean track length (right) of different feature detectors for 3D reconstruction over different datasets. The best result in each dataset is highlighted with an asterisk. Image courtesy of <sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&#65282;FFD: Fast Feature Detector, IEEE Transactions on Image Processing 2021,&#65282;">
+    [1]</span></a></sup>.
+    </figcaption>
+</figure>
+
+
+                <ul><li><h4>Visual Localization </h4></li></ul>
+<table style="border:1.8px solid black;margin-left:auto;margin-right:auto;width:75%" >
+<caption><strong>Table 2</strong>. Visual localization results on the <strong>Aachen</strong> dataset.</caption>
+  <tr>
+    <td>Feature Detector</td>
+    <td>(0.5m, &ang; 2)</td>
+    <td>(1m, &ang; 5)</td>
+    <td>(5m, &ang; 10)</td>
+  </tr>
+
+</tr>
+<td>SIFT <td>42.9<td> 56.1 <td>80.6
+</tr>
+<tr>
+<td>SURF<td> 38.8 <td>55.1<td> 73.5
+</tr>
+<tr>
+<td>BRISK<td> 39.8 <td>59.2 <td>77.6
+</tr>
+<tr>
+<td>HarrisZ <td>41.8<td> 57.1 <td>75.5
+</tr>
+<tr>
+<td>KAZE <td>40.6 <td>53.0 <td>74.4
+</tr>
+<tr>
+<td>LIFT<td> 35.6<td> 53.1 <td>67.3
+</tr>
+<tr>
+<td>DNet<td> 37.2 <td>54.1 <td>68.4
+</tr>
+<tr>
+<td>TILDE <td>38.8 <td>54.1<td> 69.4
+</tr>
+<tr>
+<td>TCDET<td> 39.8 <td>55.1 <td>72.5
+</tr>
+<tr>
+<td>SuperPoint <td>40.8 <td>59.2 <td>78.6
+</tr>
+<tr>
+<td>D2Net <td>40.8 <td>56.1 <td>75.5
+</tr>
+<tr>
+<td>FFD <td> <strong>44.9</strong> <td> <strong>60.2</strong> <td> <strong>81.6</strong>
+</tr>
+</table>
+</p>
+
+
+
+                <ul><li><h4>Robustness</h4></li></ul>
+
+<figure>
+    <img src="/FFD/PR_noise.png" class="" style="width:55%">
+    <figcaption><strong>Figure 3</strong>.mAP results of different feature detectors over the images in the homography databases corrupted by the additive WGN with a standard deviation ranging from 0.01 to 0.2. Image courtesy of <sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&#65282;FFD: Fast Feature Detector, IEEE Transactions on Image Processing 2021,&#65282;">
+    [1]</span></a></sup>.
+    </figcaption>
+</figure>
+
+                <h3 id="References"><a href="#References" class="headerlink" title="References">
+                </a>Reference</h3>
+                <div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">
+                <!-- paper -->
+                [1] </span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">FFD: Fast Feature Detector, <strong>IEEE Transactions on Image Processing</strong> 2021, 
+                    <strong><a href="https://ieeexplore.ieee.org/abstract/document/9292438">paper</a></strong><a href="#fnref:1" rev="footnote">, 
+                    <strong><a href="https://arxiv.org/abs/2012.00859">arXiv</a>,
+                    <strong><a href="https://github.com/mogvision/FFD">code</a>,
+                    </strong><a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px"></div>
+                <hr>
+
+                <!--
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>      
+                 -->      
+
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus start 
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "testonly196";
+    var disqus_identifier = "http://testonly196.github.io/ADL/";
+    var disqus_url = "http://testonly196.github.io/ADL/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+-->
+<!-- disqus end -->
+
+
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <!-- Footer -->
+
+</body>
+
+</html>

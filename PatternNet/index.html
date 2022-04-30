@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<!-- PatternNet -->
+
+<!--  <span class="math inline">\( \)</span> -->
+<!--  <span class="math display">\[ \]</span>-->
+
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Welcome to mogvision blog. Here you will find my tutorials, papers, programming experiments, and more.">
+    <meta name="keyword"  content="mogvision, paper, programming, code">
+    <link rel="shortcut icon" href="/logo/shortcut.png">
+   <link rel='alternate' type='application/rss+xml' title='RSS' href='/atom.xml'>  
+
+    <title>
+        
+          MOGvision
+        
+    </title>
+
+    <link rel="canonical" href="http://testonly196.github.io/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/hux-blog.css">
+
+
+    <!-- Pygments Highlight CSS -->
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+
+    <!-- Hamburgers css -->
+    
+<link rel="stylesheet" href="/css/hamburgers.min.css">
+
+
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China -->
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button class="hamburger hamburger--spring navbar-toggle" type="button">
+              <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+              </span>
+            </button>
+            <!--<button type="button" class="navbar-toggle">-->
+            <!--<span class="sr-only">Toggle navigation</span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--<span .intro-headerclass="icon-bar"></span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--</button>-->
+            
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                    
+                    
+    
+                    
+                    <li>
+                        <a href="/about/">About</a>
+                    </li>
+                    
+                    
+
+
+                    
+                    <li>
+                        <a href="/contact/">Contact</a>
+                    </li>
+                    
+                    
+
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e) {
+        if ($navbar.className.indexOf('in') > 0) {
+            // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function () {
+                // prevent frequently toggle
+                if ($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            }, 400)
+
+            var pos = $toggle.className.indexOf("is-active");
+            if (pos > 0) {
+                $toggle.className = $toggle.className.substr(0, pos);
+            }
+
+
+        } else {
+            // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+            $toggle.className += " is-active";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Page Header --> <!-- style="background-image: url('/img/home-bg.jpg')" -->
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <div class="site-heading">
+                    <h1>
+                    <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+                    </script>
+                    <br>
+                    <br>
+                    <h1 style="font-size: xx-large">Pattern-Net: Deep Pattern-Based <br>  Classification & Segmentaion of <br> 3D Point Cloud Data</h1>
+
+                    <a href="https://link.springer.com/chapter/10.1007/978-3-030-58604-1_30">
+                        <img alt="PatternNet" src="/logo/logoeccv.png"
+                        width="120" height="55">
+                    </a>
+
+                    <a href="https://arxiv.org/abs/2008.09634">
+                        <img alt="PatternNet" src="/logo/arxiv.png"
+                        width="120" height="60" style="margin: 0px 20px 0px 20px;">
+                    </a>
+
+                    <!--
+                    <a href="https://github.com/mogvision/FFD/">
+                        <img alt="PatternNet" src="/logo/github.png"
+                        width="60" height="60">
+                    </a>
+                    -->
+
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        March 22, 2022
+                    </h1>
+                    <!--<hr class="small">-->
+                    <span class="subheading"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+</header>
+
+
+
+
+
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                col-sm-12
+                col-xs-12
+                post-container">
+
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
+
+                <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+                </script>
+                    
+
+<!--  <span class="math inline">\( \)</span> -->
+<!--  <span class="math display">\[ \]</span>-->
+
+
+                <p>Object classification and semantic segmentation of 3D models are foundations of numerous computer vision applications like autonomous driving and robot manipulation. Thus far, a considerable number of convolutional neural networks (CNNs) have been developed for such tasks and in most cases they yield promising results, especially when the distributions of test and train datasets are similar. However, 3D models in the real world contain out-of-distribution samples, different samplings, noise and distortions that significantly influence their performance. <strong>Figure 1</strong> shows a few examples of wrong classification in the presence of noise.
+
+<figure>
+    <img src="/PatternNet/fig_intr.png" class="" style="width:70%">
+    <figcaption><strong>Figure 1</strong>. Classification results of most existing networks highly depend on the distribution of training and test data. A partial change in the distribution of test data by adding Gaussian noise N(0,0.02) leads to misclassification.
+    </figcaption>
+</figure>
+
+
+                <p>In this study, we propose a smart yet simple deep network for analysis of 3D models using the interesting <strong>‘orderly disorder’</strong> theory. Orderly disorder is a way of describing the complex structure of disorders within complex systems. Our method extracts the deep patterns inside a 3D object via creating a dynamic link to seek the most stable patterns and at once, throws away the unstable ones. Patterns are more robust to changes in data distribution, especially those that appear in the top layers. Features are extracted via an innovative cloning decomposition technique and then linked to each other to form stable complex patterns. Our model alleviates the vanishing-gradient problem, strengthens dynamic link propagation and substantially reduces the number of parameters.</p>
+
+                <h2>Orderly Disorder Theory</h2>
+                <p>The orderly disorder theory was introduced in physics and it refers to a way of describing the complex structure of disorders within complex systems. Unpredictable disorders could occur just under external disturbances not because of internal reasons. Ordered/predictable disorders may not be seen by human vision and this increases the ambiguity between the predictable and unpredictable disorders. However, the entropy metric could give us the degree of chaos inside a complex structure. Chaos theory has been well studied in mathematics, behavioral science, management, sociology etc. With the success of CNNs in solving high-order problems, this study aims at deeply analyzing the links between points in the given point cloud.</p>
+
+                <h2>The Proposed Pattern-Net</h2>
+                <p>We claim that the classification score of a 3D object must not be varied under changes in the density and distribution of points if the number of points is sufficiently large, i.e.
+                <span class="math display">\[\ \Gamma_{[p_1,...,p_N]} = \Gamma_{[p_1,...,p_M]}\qquad if \qquad N < M\ \&\ N\gg1,\]</span> where
+                <ul>
+                    <li><span class="math inline">\(P=\{p_m\in\mathbb{R}^d, m=1,...,M\}\)</span>: input point cloud<br>
+                    <li><span class="math inline">\(\Gamma_c=\{\gamma_c\in\mathbb{R}, c=1,...,C\}\)</span>: classification labels with C classes<br>
+                    <li><span class="math inline">\(M\)</span>: total number of 3D points</li>
+                </ul>
+                </p>
+
+                <p>One possible solution to the above equation is to decompose the input point cloud into 'L' levels via a random down-sampling operator in such a way that all L point subsets are completely different while their overall schemes/abstracts are similar to each other. Under these conditions, the equation above is asserted. If we apply a random down-sampling operator to point cloud 'P' that provides</p>
+
+                    i- <span class="math inline">\(\ P{\{l\}} \cap P\{j\} = \emptyset \quad \forall \,l,j \in \{1,...,L\}\ \&\  l\neq j,\)</span><br>
+                    ii-<span class="math inline">\(\ \bigcup^L_{l=1}P{\{l\}} = P\)</span><br>
+                    iii-<span class="math inline">\(\ H(P{\{l\}}) \simeq H(P{\{j\}}) \quad   \quad \forall\, l,j \in \{1,...,L\}\ \&\  l\neq j\)</span>
+                <p>then we can assert that all the 'L' point subsets have similar <it>stationary</it> structures/patterns. In the equation, span class="math inline">\(\ H\)</span> denotes the entropy of each subset and this equation assures that all the subsets have approximately similar information content. Possible values of entropy for patterns with different characteristics is depicted in <strong>Figure 2</strong>.
+                Pattern-Net and its implmentation are detailed at <sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&#65282;Orderly disorder in point cloud domain. In European Conference on Computer Vision (pp. 494-509), ECCV2020.&#65282;">[1]</span></a></sup>.
+
+
+
+<figure>
+    <img src="/PatternNet/recursion.png" class="" style="width:50%">
+    <figcaption><strong>Figure 2</strong>. Entropy of patterns with different characteristics.
+    </figcaption>
+</figure>
+
+                <h2>Experimental Results</h2>
+                <p>Extensive experiments on challenging benchmark datasets verify the superiority of our light network on the segmentation and classification tasks, especially in the presence of noise wherein our network’s performance drops less than 10% while the state-of-the-art networks fail to work. A summary of the results is shown below.</p>
+
+                <ul><li><h4>Classification</h4></li></ul>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+  vertical-align: middle;
+  margin-bottom: 5px;
+}
+</style>
+
+<table style="border:1.8px solid black;margin-left:auto;margin-right:auto;width:80%" >
+<caption><strong>Table 1</strong>. Classification accuracy in percentage (%) on <strong>ModelNet40</strong> (‘-’: unknown)</caption>
+  <tr>
+    <td>Classifier</td>
+    <td>Input</td>
+    <td>Avg. classes</td>
+    <td>Overall</td>
+  </tr>
+
+</tr>
+<td>PointNet <td> 1k-xyz <td>86.0<td> 89.2
+</tr>
+<tr>
+<td>PointNet++ <td> 5k-xyz <td>- <td>91.9
+</tr>
+<tr>
+<td>PointCNN<td> 1k-xyz <td>88.1 <td>92.2
+</tr>
+<tr>
+<td>ECC<td>1k-xyz <td>83.2<td>87.4
+</tr>
+<tr>
+<td>DGCNN<td>2k-xyz<td> 90.7 <td>93.5
+</tr>
+<tr>
+<td>SO-Net<td> 2k-xyz <td>88.7 <td>90.9
+</tr>
+<tr>
+<td>DensePoint<td> 1k-xyz <td> - <td>93.2
+</tr>
+<tr>
+<td>RS-CNN<td> 1k-xyz <td>-<td> 93.6
+</tr>
+<tr>
+<td>Pattern-Net<td>1k-xyz <td>90.3<td> 92.9
+</tr>
+<tr>
+<td>Pattern-Net <td>2k-xyz <td>90.7 <td>93.6
+</tr>
+<tr>
+<td>Pattern-Net<td>4k-xyz <td><strong>90.8</strong> <td> <strong>93.9</strong>
+</table>
+</p>
+
+
+
+
+
+
+
+
+
+
+<table style="border:1.8px solid black;margin-left:auto;margin-right:auto;width:80%" >
+<caption><strong>Table 2</strong>. Classification accuracy in percentage (%) on <strong>ModelNet40</strong> in the presence of noise [2k − xyz + N (0, σ)]</caption>
+  <tr>
+    <td>Classifier</td>
+    <td>N(0,0.02)</td>
+    <td>N(0,0.05)</td>
+    <td>N(0,0.08)</td>
+    <td>N(0,0.1)</td>
+    <td>N(0,0.15)</td>
+  </tr>
+</tr>
+<tr>
+<td>PointCNN<td> 78.7<td> 40.8 <td>18.6 <td>10.5 <td>4.7
+</tr>
+<tr>
+<td>DGCNN <td>92.9 <td>69.1 <td>29.9 <td>11.4 <td>4.2
+</tr>
+<tr>
+<td>SO-Net<td> 70.6<td> 35.4 <td>11.9 <td>9.8 <td>5.8
+</tr>
+<tr>
+<td>Pattern-Net(4x512)<td> <strong>93.5</strong> <td> <strong>92.4</strong> <td><strong>89.1</strong> <td><strong>84.2</strong><td> <strong>32.6</strong>
+</tr>
+</table>
+</p>
+
+
+
+
+
+<figure>
+    <img src="/PatternNet/cls_results.png" class="" style="width:97%">
+    <figcaption><strong>Figure 3</strong>. Classification results on <strong>ModelNet40</strong> with added Gaussian noise N(0,0.05). First 10 shapes shown are for each query, with the first line for our Pattern-Net and the second line for DGCNN. The misclassified objects are highlighted in red.
+    </figcaption>
+</figure>
+
+
+      
+                <ul><li><h4>Segmentation</h4></li></ul>
+
+
+
+<table style="border:1.8px solid black;margin-left:auto;margin-right:auto;width:95%" >
+<caption><strong>Table 3</strong>. Classification accuracy in percentage (%) on <strong>ModelNet40</strong> (‘-’: unknown)</caption>
+  <tr>
+    <td>Category (#)</td>
+    <td>PointNet</td>
+    <td>PointNet++</td>
+    <td>PointCNN</td>
+    <td>DGCNN</td>
+    <td>SO-Net</td>
+    <td>RS-CNN</td>
+    <td>Pattern-Net</td>
+    </tr>
+</tr>
+<tr>
+<td>Areo (2690)<td> 83.4<td> 82.4 <td>82.4 <td>84.0 <td>82.8<td> 83.5 <td><strong>84.3</strong>
+</tr>
+<tr>
+<td>Bag (76)<td> 78.7 <td>79.0 <td>80.1<td> 83.4<td> 77.8 <td><strong>84.8</strong><td> 81.0
+</tr>
+<tr>
+<td>Cap (55) <td>82.5<td> 87.7<td> 85.5 <td>86.7 <td>88.0 <td><strong>88.8</strong> <td>87.4
+</tr>
+<tr>
+<td>Car (898) <td>74.9 <td>77.3<td> 79.5 <td>77.8 <td>77.3 <td>79.6<td> <strong>80.1</strong>
+</tr>
+<tr>
+<td>Chair (3758)<td> 89.6<td> 90.8 <td>90.8<td> 90.6 <td>90.6 <td>91.2 <td><strong>91.4</strong>
+</tr>
+<tr>
+<td>Ear (69) <td>73.0<td> 71.8 <td>73.2 <td>74.7 <td>73.5 <td><strong>81.1</strong><td> 79.7
+</tr>
+<tr>
+<td>Guitar (787)<td> 91.5 <td>91.0<td> 91.3 <td>91.2 <td>90.7 <td><strong>91.6</strong><td> 91.4
+</tr>
+<tr>
+<td>Knife (392) <td>85.9 <td>85.9<td> 86.0<td> 87.5 <td>83.9<td> <strong>88.4</strong> <td>88.1
+</tr>
+<tr>
+<td>Lamp (1547) <td>80.8<td> 83.7 <td>85.0 <td>82.8<td> 82.8 <td>86.0 <td><strong>86.3</strong>
+</tr>
+<tr>
+<td>Laptop (451) <td>95.3 <td>95.3 <td>95.7 <td>95.7 <td>94.8<td> <strong>96.0</strong><td> 95.8
+</tr>
+<tr>
+<td>Motor (202)<td> 65.2 <td>71.6 <td>73.2 <td>66.3 <td>69.1<td> <strong>73.7</strong> <td>72.1
+</tr>
+<tr>
+<td>Mug (184) <td>93.0 <td>94.1 <td>94.8 <td><strong>94.9</strong> <td>94.2 <td>94.1 <td>94.1
+</tr>
+<tr>
+<td>Pistol (283) <td>81.2<td> 81.3 <td>83.3 <td>81.1 <td>80.9 <td><strong>83.4</strong><td> 82.2
+</tr>
+<tr>
+<td>Rocket (66)<td> 57.9 <td>58.7 <td>51.0<td> <strong>63.5</strong><td> 53.1 <td>60.5<td> 62.4
+</tr>
+<tr>
+<td>Skate (152) <td>72.8 <td>76.4<td> 75.0 <td>74.5<td> 72.9 <td><strong>77.7</strong> <td>72.4
+</tr>
+<tr>
+<td>Table (5271) <td>80.6 <td>82.6<td> 81.8 <td>82.6<td>83.0 <td>83.6<td><strong>83.9</strong>
+</tr>
+<tr>
+<td>Avg. <td>83.7<td> 85.1<td> 85.1 <td>85.2 <td>84.9 <td>86.2<td> <strong>86.4</strong>
+</tr>
+</table>
+</p>
+
+
+
+
+
+
+<figure>
+    <img src="/PatternNet/seg_results.png" class="" style="width:99%">
+    <figcaption><strong>Figure 4</strong>. Segmentation results on <strong>ShapeNet</strong>. First shape of each category is selected, where the left shape stands for the ground truth and the right one for our Pattern-Net.
+    </figcaption>
+</figure>
+
+
+
+                <ul><li><h4>Complexity Analysis</h4></li></ul>
+<table style="border:1.8px solid black;margin-left:auto;margin-right:auto;width:95%" >
+<caption><strong>Table 4</strong>. Complexity of different methods for point cloud classification task</caption>
+  <tr>
+    <td>Method</td>
+    <td>PointNet++</td>
+    <td>PointCNN</td>
+    <td>DGCNN</td>
+    <td>SO-Net</td>
+    <td>RS-CNN</td>
+    <td>DensePoint</td>
+    <td>Pattern-Net</td>
+  </tr>
+</tr>
+<tr>
+<td>#params. <td>1.48M<td> 8.2M<td> 11.8M <td>11.5M <td>1.41M <td>670k <td> <strong>399k</strong>
+</tr>
+</table>
+</p>
+
+
+                <h3 id="References"><a href="#References" class="headerlink" title="References">
+                </a>Reference</h3>
+                <div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">
+                <!-- paper -->
+                [1] </span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Orderly disorder in point cloud domain. In European Conference on Computer Vision (pp. 494-509), ECCV2020.
+                    <strong><a href="https://link.springer.com/chapter/10.1007/978-3-030-58604-1_30">paper</a></strong><a href="#fnref:1" rev="footnote">, 
+                    <strong><a href="https://arxiv.org/abs/2008.09634" src="/logo/arxiv.png">arXiv</a>,
+                    </strong><a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px"></div>
+                <hr>
+
+                <!--
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>      
+                 -->      
+
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus start 
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "testonly196";
+    var disqus_identifier = "http://testonly196.github.io/ADL/";
+    var disqus_url = "http://testonly196.github.io/ADL/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+-->
+<!-- disqus end -->
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <!-- Footer -->
+
+</body>
+
+</html>

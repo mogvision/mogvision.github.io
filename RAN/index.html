@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<!-- RAN -->
+
+<!--  <span class="math inline">\( \)</span> -->
+<!--  <span class="math display">\[ \]</span>-->
+
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Welcome to mogvision blog. Here you will find my tutorials, papers, programming experiments, and more.">
+    <meta name="keyword"  content="mogvision, paper, programming, code">
+    <link rel="shortcut icon" href="/logo/shortcut.png">
+
+    <title>
+        
+          MOGvision
+        
+    </title>
+
+    <link rel="canonical" href="http://testonly196.github.io/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/hux-blog.css">
+
+
+    <!-- Pygments Highlight CSS -->
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+
+    <!-- Hamburgers css -->
+    
+<link rel="stylesheet" href="/css/hamburgers.min.css">
+
+
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China -->
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button class="hamburger hamburger--spring navbar-toggle" type="button">
+              <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+              </span>
+            </button>
+            <!--<button type="button" class="navbar-toggle">-->
+            <!--<span class="sr-only">Toggle navigation</span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--<span .intro-headerclass="icon-bar"></span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--</button>-->
+            
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                    
+    
+                    
+                    <li>
+                        <a href="/about/">About</a>
+                    </li>
+                    
+                    
+
+
+                    
+                    <li>
+                        <a href="/contact/">Contact</a>
+                    </li>
+                    
+                    
+
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e) {
+        if ($navbar.className.indexOf('in') > 0) {
+            // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function () {
+                // prevent frequently toggle
+                if ($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            }, 400)
+
+            var pos = $toggle.className.indexOf("is-active");
+            if (pos > 0) {
+                $toggle.className = $toggle.className.substr(0, pos);
+            }
+
+
+        } else {
+            // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+            $toggle.className += " is-active";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Page Header --> <!-- style="background-image: url('/img/home-bg.jpg')" -->
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <div class="site-heading">
+                    <h1>
+                    <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+                    </script>
+                    <br>
+                    <br>
+                    <h1 style="font-size: xx-large">RAN: Regional Attention Network for <br> Pose & Gesture Recognition</h1>
+
+                    <a href="https://ieeexplore.ieee.org/document/9226486">
+                        <img alt="RAN" src="/logo/ieee.png"
+                        width="120" height="50">
+                    </a>
+
+                    <a href="https://arxiv.org/abs/2101.06634">
+                        <img alt="RAN" src="/logo/arxiv.png"
+                        width="120" height="60" style="margin: 0px 20px 0px 20px;">
+                    </a>
+
+                    <!--
+                    <a href="https://github.com/mogvision/FFD/">
+                        <img alt="RAN" src="/logo/github.png"
+                        width="60" height="60">
+                    </a>
+                    -->
+
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        March 22, 2022
+                    </h1>
+                    <!--<hr class="small">-->
+                    <span class="subheading"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+</header>
+
+
+
+
+
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                col-sm-12
+                col-xs-12
+                post-container">
+
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
+
+                <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+                </script>
+                    
+
+<!--  <span class="math inline">\( \)</span> -->
+<!--  <span class="math display">\[ \]</span>-->
+
+
+                <p><it>Affect</it> refers to the underlying experience of feeling, emotion or mood. Affect and its physical expression are an integral part of social interaction, informing others about how we are feeling and influencing social outcomes. It is often displayed via facial expressions, head pose/movements, hand gestures, body posture, voice characteristics, and other physical manifestations. Observers are capable of recognizing these affect displays, and often react to and draw inferences from them. The mapping of affective states onto behavioral cues is a complex problem involving numerous factors, and psychologists attempt to establish links between them without relying on subjective self-report as a primary measure. The mechanization of this process is fundamental in affective computing. Therefore, research on automatic recognition of nonverbal behavior/gestures is only the first step. This has significantly influenced the automatic recognition of nonverbal behavior in images and videos to address this fundamental problem in affective computing. Automatic recognition of human gestures/actions and nonverbal body language is well researched within computer vision community [2], [3] and is instrumental for various applications such as socially assistive robots/AI, human-computer interactions, affectaware technologies, autonomous vehicles, sign language recognition, virtual reality, and many more.
+                </p>
+
+                <p>
+                A novel approach is proposed for gesture/action recognition in still images, unlike current approaches, without requiring bounding-box annotations and/or body parts/object/people detection. The generalization and easy-to-implement capability of our approach is demonstrated by integrating it with the state-of-the-art base CNNs that incorporate regional attentions to give a significant improvement in the fine-grained gesture/action recognition performance. The proposed region-based attentional module is the first of its kind that uses a hybrid approach to include hard attention, soft attention, and self-attention on pooled regional CNN features from a base network. The efficacy of our approach is demonstrated through in-depth analysis on 10 datasets comprising of three different types of action/gestures: 1) head pose, 2) driver’s distraction activities, and 3) human actions involving human-objects interaction and facial expressions;
+                </p>
+
+                <h3> Proposed Approach</h3> 
+                <p>
+                The overview of the architecture is shown in <strong>Figure 1</strong>. An image is fed into a base CNN (e.g. VGG, ResNet, Inception, etc.), and its output is up-sampled and fed into a regions of interest (ROIs) pooling layer, which also takes as input a list of regions with information about spatial location (x, y) and size (width and height). The pooling provides a fixed-size feature map for each ROI by using bilinear interpolation. These ROIs are computed automatically (see Section 3.1 of the paper). Therefore, our network does not require the cropped region or region annotations. Subsequently, the ROI-pooled feature maps are passed through the corresponding Squeeze-and-Excitation (SE) layer (red layers with skip connection described in Section 3.2) in Figure 1. Similarly, the output of the convolutional layer is also passed through the proposed SE layer (green layer) for computing the feature map of the whole image I. Region specific feature maps and the image-specific feature map are then fed into the proposed attention layer to compute region-specific attentions, and then combine them to construct single activation for fine-grained action recognition.
+
+<figure>
+    <img src="/RAN/ranframework.png" class="" style="width:98%">
+    <figcaption><strong>Figure 1</strong>. Architecture of our RAN. Given an image, we select a set of candidate regions (bounding boxes). The image is passed through a base CNN. The output activation of a given region r is computed using a specialized Squeeze-and-Excitation layer with skip connection. For each gesture g (head pose example), the most informative region is selected using the proposed attention layer consisting of self-attention and co-attention representing combined attention of regions and the whole image. The softmax operation transforms co-attention-focused activations into probabilities that form the final prediction. Image courtesy of <sup id="fnref:1"><a href="#fn:1"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&#65282;Regional Attention Network (RAN) for Head Pose and Fine-grained Gesture Recognition in IEEE Transactions on Affective Computing, doi: 10.1109/TAFFC.2020.3031841.&#65282;">[1]</span></a></sup>.
+    </figcaption>
+</figure>
+
+
+                <p>
+                Our attention consists of two layers: 1) self-attention and 2) co-attention (<strong>Figure 2</strong>). This is necessary for inferencing human attention (which direction a person is looking), which is often explored in human machine/computer interactions, human-robot social interactions, and nonverbal communications.  Our attention can be easily integrated with the existing state-of-the-art CNNs. Please refer to the paper for more details.
+
+<figure>
+    <img src="/RAN/attention.png" class="" style="width:80%">
+    <figcaption><strong>Figure 2</strong>.  Computation of the proposed self-attention and co-attention. Image courtesy of <sup id="fnref:1"><a href="#fn:1"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&#65282;Regional Attention Network (RAN) for Head Pose and Fine-grained Gesture Recognition in IEEE Transactions on Affective Computing, doi: 10.1109/TAFFC.2020.3031841.&#65282;">[1]</span></a></sup>.
+    </figcaption>
+</figure>
+
+
+
+                <h3> Experimental Results</h3> 
+                <ul><li> <h4>Human Action/Gesture/Facial Expression Recognition</h4></li></ul>
+
+
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+  vertical-align: middle;
+  margin-bottom: 5px;
+}
+</style>
+<table style="border:1.8px solid black;margin-left:auto;margin-right:auto;width:70%" >
+<caption><strong>Table 2</strong>. Facial expression recognition accuracy (%) of different methods over the <strong>Oulu-CASIA</strong> dataset</caption>
+  <tr>
+    <td>Methods</td>
+    <td>Setting</td>
+    <td>Accuracy (%)</td>
+  </tr>
+</tr>
+<td>LBP-TOP <td>sequence-based <td>68.13
+</tr>
+<tr>
+<td>HOG 3D <td> sequence-based<td> 70.63
+</tr>
+<tr>
+<td>STM-Explet<td> sequence-based <td>74.59
+</tr>
+<tr>
+<td>Atlases <td> sequence-based <td>75.52
+</tr>
+<tr>
+<td>DTAGN-Joint <td>sequence-based <td>81.46
+</tr>
+<tr>
+<td>FN2EN <td>image-based <td>87.71
+</tr>
+<tr>
+<td>PPDN <td> image-based<td> 84.59
+</tr>
+<tr>
+<td>DeRL <td>image-based <td>88.00
+</tr>
+<tr>
+<td>Our RAN <td>image-based<td> <strong>88.74</strong>
+<tr>
+<tr>
+</table>
+
+
+
+<figure>
+    <img src="/RAN/gesture.png" class="" style="width:99%">
+    <figcaption><strong>Figure 3</strong>.  Individual action/gesture accuracy of our RAN: a) evaluated on <strong>Distracted Driver V1</strong>   dataset  with InceptionV3 as a base CNN, compared with R-VGG and M-VGG and GA-WE (left); b) evaluated on <strong>Distracted Driver V2</strong>  dataset and compared with Inception-V3 (best performer) as evaluated in (right). Image courtesy of <sup id="fnref:1"><a href="#fn:1"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&#65282;Regional Attention Network (RAN) for Head Pose and Fine-grained Gesture Recognition in IEEE Transactions on Affective Computing, doi: 10.1109/TAFFC.2020.3031841.&#65282;">[1]</span></a></sup>.
+    </figcaption>
+</figure>
+
+
+            <ul><li> <h4>Visualization and Analysis</h4></li></ul>
+
+<figure>
+    <img src="/RAN/Visual.png" class="" style="width:99%">
+    <figcaption><strong>Figure 4</strong>.  Visual explanation of decision using Gradient-weighted Class Activation Mapping (Grad-CAM) for <strong>Distracted Driver(a-e), PPMI (f-j) and Standford-40 (k-o)</strong>  datasets. This figure analyzes how localizations change qualitatively. Image courtesy of <sup id="fnref:1"><a href="#fn:1"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&#65282;Regional Attention Network (RAN) for Head Pose and Fine-grained Gesture Recognition in IEEE Transactions on Affective Computing, doi: 10.1109/TAFFC.2020.3031841.&#65282;">[1]</span></a></sup>.
+    </figcaption>
+</figure>
+
+
+<figure>
+    <img src="/RAN/tsne.png" class="" style="width:95%">
+    <figcaption><strong>Figure 5</strong>. Visualization of outputs (before Softmax) of ResNet-50 as a baseline and our RAN with ResNet-50 as a base CNN using t-SNE. For RAN, we consider two outputs: before and after our proposed region-based attention layer (the same place as in ResNet-50 baseline and that before Softmax). Image courtesy of <sup id="fnref:1"><a href="#fn:1"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&#65282;Regional Attention Network (RAN) for Head Pose and Fine-grained Gesture Recognition in IEEE Transactions on Affective Computing, doi: 10.1109/TAFFC.2020.3031841.&#65282;">[1]</span></a></sup>.
+    </figcaption>
+</figure>
+
+
+                <h3 id="References"><a href="#References" class="headerlink" title="References">
+                </a>Reference</h3>
+                <div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">
+                <!-- paper -->
+                [1] </span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Regional Attention Network (RAN) for Head Pose and Fine-grained Gesture Recognition," in IEEE Transactions on Affective Computing, doi: 10.1109/TAFFC.2020.3031841.
+                <strong><a href="https://ieeexplore.ieee.org/document/9226486">paper</a></strong><a href="#fnref:1" rev="footnote">, 
+                    <strong><a href="https://arxiv.org/abs/2101.06634" src="/logo/arxiv.png">arXiv</a>,
+                    </strong><a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px"></div>
+                <hr>
+
+                <!--
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>      
+                 -->      
+
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus start 
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "testonly196";
+    var disqus_identifier = "http://testonly196.github.io/ADL/";
+    var disqus_url = "http://testonly196.github.io/ADL/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+-->
+<!-- disqus end -->
+
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <!-- Footer -->
+
+</body>
+
+</html>

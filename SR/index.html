@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- SR -->
+<!--  <span class="math inline">\( \)</span> -->
+<!--  <span class="math display">\[ \]</span>-->
+
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Welcome to mogvision blog. Here you will find my tutorials, papers, programming experiments, and more.">
+    <meta name="keyword"  content="mogvision, paper, programming, code">
+    <link rel="shortcut icon" href="/logo/shortcut.png">
+
+    <title>
+        
+          MOGvision
+        
+    </title>
+
+    <link rel="canonical" href="http://testonly196.github.io/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/hux-blog.css">
+
+
+    <!-- Pygments Highlight CSS -->
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+
+    <!-- Hamburgers css -->
+    
+<link rel="stylesheet" href="/css/hamburgers.min.css">
+
+
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China -->
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button class="hamburger hamburger--spring navbar-toggle" type="button">
+              <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+              </span>
+            </button>
+            <!--<button type="button" class="navbar-toggle">-->
+            <!--<span class="sr-only">Toggle navigation</span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--<span .intro-headerclass="icon-bar"></span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--</button>-->
+            
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                    
+    
+                    
+                    <li>
+                        <a href="/about/">About</a>
+                    </li>
+                    
+                    
+
+
+                    
+                    <li>
+                        <a href="/contact/">Contact</a>
+                    </li>
+                    
+
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e) {
+        if ($navbar.className.indexOf('in') > 0) {
+            // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function () {
+                // prevent frequently toggle
+                if ($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            }, 400)
+
+            var pos = $toggle.className.indexOf("is-active");
+            if (pos > 0) {
+                $toggle.className = $toggle.className.substr(0, pos);
+            }
+
+
+        } else {
+            // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+            $toggle.className += " is-active";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Page Header --> <!-- style="background-image: url('/img/home-bg.jpg')" -->
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <div class="site-heading">
+                    <h1>
+                    <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+                    </script>
+                    <br>
+                    <h1 style="font-size: xx-large">Remote Sensing Image <br>Super-Resolution</h1>
+
+                    <a href="https://ieeexplore.ieee.org/abstract/document/7548323">
+                        <img alt="SR" src="/logo/ieee.png"
+                        width="120" height="45">
+                    </a>
+
+                    <a href="http://openremotesensing.net/wp-content/uploads/2016/11/Ghahremani_LGRS.2016.2597271.pdf">
+                        <img alt="SR" src="/logo/arxiv.png"
+                        width="120" height="60" style="margin: 0px 20px 0px 20px;">
+                    </a>
+
+                    <a href="https://github.com/mogvision/nonlinear-ihs">
+                        <img alt="SR" src="/logo/github.png"
+                        width="60" height="60">
+                    </a>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        April 22, 2022
+                    </h1>
+                    <!--<hr class="small">-->
+                    <span class="subheading"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!--
+<strong><a href="https://ieeexplore.ieee.org/abstract/document/9292438">paper</a></strong><a href="#fnref:1" rev="footnote">, 
+                    <strong><a href="https://arxiv.org/abs/2012.00859">arXiv</a>,
+-->
+
+
+</header>
+
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                col-sm-12
+                col-xs-12
+                post-container">
+
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
+
+                <p>Remote sensing satellites utilise spectral sensors for capturing the images of the globe in arbitrary spectral and spatial resolutions. Spectral sensors are capable to deliver high spectral resolution imagery, but the spatial resolution of satellite imagery is normally low. To provide spectral sensors with high-spatial resolution capability is very challenging due to the constraints and limitations on the satellite’s payload, cost, complexity and bandwidth. Instead of capturing high-spatial resolution multispectral (HRM) imagery directly, an alternative solution is to capture a single high-spatial resolution panchromatic (HRP) image through high-spatial resolution imaging sensors. Then, via image fusion techniques known as pan-sharpening in short, the spatial resolution of the low-spatial resolution multispectral (LRM) images can be enhanced by the HRP data. In most remote sensing applications, the HRM images are more interpretative and thus are in greater demand for numerous applications such as for geological research, classification, object detection, segmentation, soil moisture etc.
+
+
+                Thus far, we have proposed several techniques that can are classified into four main categories: A component-substitution-based approach called non-linear IHS<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&#65282;Nonlinear IHS: A promising method for pan-sharpening, ``IEEE Geoscience and Remote Sensing Letters'', 2016 Aug 24;13(11):1606-10.&#65282;">[1]</span></a></sup>,
+                the multiresolution-analysis-based approach <sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&#65282;Remote sensing image fusion using ripplet transform and compressed sensing, ``IEEE Geoscience and Remote Sensing Letters'', 2014 Aug 26;12(3):502-6.&#65282;">[2]</span></a></sup>, the model-based approach  <sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&#65282;Remote-sensing image fusion based on curvelets and ICA, ``International Journal of Remote Sensing'', 2015 Aug 18;36(16):4131-43.&#65282;">[3]</span></a></sup>, and the reconstruction-based approach like<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&#65282;A compressed-sensing-based pan-sharpening method for spectral distortion reduction, ``IEEE Transactions on Geoscience and remote Sensing''. 2015 Nov 23;54(4):2194-206.&#65282;">[4]</span></a></sup>,<sup id="fnref:5"><a href="#fn:4" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&#65282;Remote sensing image fusion via compressive sensing, ISPRS journal of photogrammetry and remote sensing＂, 2019 Jun 1;152:34-48.&#65282;">[5]</span></a></sup>. Please refer to the papers for more details.</p>
+
+
+
+            <h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px"> 
+
+            [1]</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Nonlinear IHS: A promising method for pan-sharpening, <strong>IEEE Geoscience and Remote Sensing Letters</strong>, 2016 Aug 24;13(11):1606-10.<strong><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/abstract/document/7548323">paper</a></strong>, <strong><a target="_blank" rel="noopener" href="http://openremotesensing.net/wp-content/uploads/2016/11/Ghahremani_LGRS.2016.2597271.pdf">ArXiv</a></strong><a href="#fnref:1" rev="footnote">, <strong><a href="https://github.com/mogvision/nonlinear-ihs">code</a></strong> </span></li><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">
+
+            [2]</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Remote sensing image fusion using ripplet transform and compressed sensing, <strong>IEEE Geoscience and Remote Sensing Letters</strong>, 2014 Aug 26;12(3):502-6.<strong><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/abstract/document/6883128">paper</a></strong> </span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">
+
+            [3]</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Remote-sensing image fusion based on curvelets and ICA, <strong>International Journal of Remote Sensing</strong>, 2015 Aug 18;36(16):4131-43.<strong><a target="_blank" rel="noopener" href="https://www.tandfonline.com/doi/abs/10.1080/01431161.2015.1071897">paper</a></strong></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">
+
+            [4]</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">A compressed-sensing-based pan-sharpening method for spectral distortion reduction, <strong>IEEE Transactions on Geoscience and remote Sensing</strong>, 2015 Nov 23;54(4):2194-206.<strong><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/abstract/document/7335613">paper</a></strong></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">
+
+            [5]</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Remote sensing image fusion via compressive sensing, <strong>"ISPRS journal of photogrammetry and remote sensing"</strong>, 2019 Jun 1;152:34-48.<strong><a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/abs/pii/S0924271619300917">paper</a></strong><a href="#fnref:5" rev="footnote"> ↩</a></span></li></ol></div></div>
+                <hr>
+
+                <!--
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>      
+                 -->      
+
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus start 
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "testonly196";
+    var disqus_identifier = "http://testonly196.github.io/ADL/";
+    var disqus_url = "http://testonly196.github.io/ADL/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+-->
+<!-- disqus end -->
+
+
+
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <!-- Footer -->
+
+</body>
+
+</html>
