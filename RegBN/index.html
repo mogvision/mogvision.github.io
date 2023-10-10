@@ -176,14 +176,20 @@
         </table>
             <table align=center width=320px>
                 <tr>
-                    <td align=center width=120px>
+                    <td align=center width=180px>
                         <center>
                             <span style="font-size:24px"><a href="https://arxiv.org/abs/2310.00641">[Paper]</a></span>
                         </center>
                     </td>
-                    <td align=center width=120px>
+                    <td align=center width=180px>
                         <center>
                             <span style="font-size:24px"><a href='https://github.com/mogvision/regbn'>[Code]</a></span><br>
+                        </center>
+                    </td>
+
+                    <td align=center width=180px>
+                        <center>
+                            <span style="font-size:24px"><a href="https://arxiv.org/abs/2310.00641">[Supplementary]</a></span>
                         </center>
                     </td>
                 </tr>
@@ -194,12 +200,18 @@
 
     </center>
 
+    <br>
+
+    <br>
+
+    <br>
+
     <center>
         <table align=center width=850px>
             <tr>
-                <td width=260px>
+                <td width=230px>
                     <center>
-                        <img class="round" style="width:900px" src="./framework.jpg"/>
+                        <img class="round" style="width:900px" src="./framework.png"/>
                     </center>
                 </td>
             </tr>
@@ -214,10 +226,19 @@
             <td>
                 This paper introduces a novel approach for the normalization of multimodal data, called RegBN, that incorporates regularization. 
                 RegBN uses the Frobenius norm as a regularizer term to address the side effects of confounders and underlying 
-                dependencies among different data sources. 
-                RegBN generalizes well across multiple modalities and eliminates the need for learnable parameters, simplifying training and inference.
-                RegBN demonstrates broad applicability across different architectures such as 
-                MLPs, CNNs, and ViTs, enabling effective normalization of both lowand high-level features in multimodal neural networks.
+                dependencies among different data sources.  It enables effective normalization of both lowand high-level features in multimodal neural networks.
+
+                <ul>
+                    <li>RegBN is batch normalisation method for <b> multimodal data</b> </li>
+
+                    <li>RegBN generalizes well across multiple modalities of any
+                        architecture such MLPs, CNNs, ViTs, etc</li>
+                    <br>
+                    <li>RegBN can be applied to a vast array of heterogeneous data types,
+                        including text, audio, image, video, depth, tabular, 3D MRI, etc</li>
+                    <br>
+                    <li>RegBN eliminates the need for learnable parameters, simplifying training and inference</li>
+                  </ul>
             </td>
         </tr>
     </table>
@@ -225,20 +246,53 @@
 
     <hr>
 
-    <table align=center width=850px>
+    <table align=center width=960px>
         <center><h1>Method</h1></center>
         <tr>
             <td>
-                ????
+                Given a trainable multimodal neural network (e.g., MLPs, CNNs, ViTs) with multimodality 
+                backbones \(A\) and \(B\). 
+
+                Let \(f^{(l)}\) represent the \(l\)-th layer of network \(A\)  
+                with batch size \(b\) and \(n_1\times...\times n_N\) 
+                features that are flattened into a vector of size \(n\).  
+                In a similar vein, we define \(g^{(k)}\) as the \(k\)-th layer of 
+                network \(B\) with \(m_1\times\ldots\times m_M\) features that are flattened into a vector of size \(m\). 
+                RegBN make \(f^{(l)}\) and \(g^{(k)}\) mutually independent via
+
+                $$F(W^{(l,k)},\lambda_{+}) = ||{f^{(l)}-W^{(l,k)} g^{(k)}}||^2_2+\lambda_{+} (||{W^{(l,k)}}||_F-1)$$
+
+                Where \(W^{(l,k)}\) is a projection matrix of size \(n\times m\) and 
+                \({\lambda}_{+}\) is a Lagrangian multiplier. 
+                \(W^{(l,k)}\) and \({\lambda}_{+}\) are estimated via an innovative recursive-based algorithm.
+                
+            
+                <h3>Where is it advisable to apply RegBN?</h3>
 
         <table>
             <center>
-                <img class="round" style="width:300px" src="framework.jpg"/>
+                <img class="round" style="width:425px" src="./layer.png">
+                <img class="round" style="width:400px" src="./late.png"/>
+                <br>
+                <center>
+                    (a) RegBN as a layer normalizer
+                    &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp;  &nbsp;
+                    (b) Late fusion with RegBN
+                </center>
+
+                <br>
+                <img class="round" style="width:400px" src="./mid.png"/>
+                <img class="round" style="width:400px" src="./early.png"/>
+                <center>
+                    (c)  Layer fusion (LF) with RegBN
+                    &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp;  &nbsp;
+                    (d) Early fusion with RegBN
+                </center>
             </center>
+
         </table>
-            <center>
-            Each ????
-            </center>
             </td>
         </tr>
 
@@ -249,24 +303,67 @@
         <center><h1>Experiments</h1></center>
         <tr>
             <td>
-                RegBN applied to ...
+                In the paper, we reported the performance of RegBN over eight multimodal databases with various modalities, 
+                including <b> multimedia </b>, <b>affective computing</b>, 
+                <b>robotics</b>, <b>healthcare diagnosis</b>, etc.
             </td>
         </tr>
 
     </table>
 
 
-    <table align=center width=900>
-        <center><h3>Race</h3></center>
+    <br>
+    <br>
 
-        <center>
-            <img class="round" style="width:256px" src="./data/im_im0_race_0_age_0.png"/>
-            <img class="round" style="width:256px" src="./data/real3_race_0.gif"/>
-            &nbsp&nbsp
-            <img class="round" style="width:256px" src="./data/im_im23_race_0_age_0.png"/>
-            <img class="round" style="width:256px" src="./data/real4_race_23.gif"/>
-        </center>
+    <table align=center width=850px>
+        <tr>
+            <td>
+               <b>MNIST</b> 
+
+        <table>
+            <center>
+                <img class="round" style="width:800px" src="./mnist.png"/>
+            </center>
+        </table>
+            <center>
+                tSNE visualization of the features extracted from a-b) an unimodal image and an unimodal
+                audio, and c-e) the multimodal model with different normalization methods. Each data point
+                represents a sample
+            </center>
+            </td>
+        </tr>
+
     </table>
+
+    <br>
+    <br>
+
+    <table align=center width=850px>
+        <tr>
+            <td>
+               <b>Multimedia (MM-IMDb)</b> 
+               <br>
+        <table>
+            <center>
+                <img class="round" style="width:650px" src="./mmimdb.png"/>
+            </center>
+        </table>
+            <center>
+                Multi-label classification scores (F1 score) of baseline 
+                <span style="font-size:16px"><a href="https://github.com/mengmenm/SMIL">SMIL</a></span> 
+                with/without normalization on the   
+                <span style="font-size:16px"><a href="https://arxiv.org/pdf/1702.01992.pdf">MM-IMDb</a></span> dataset
+            </center>
+            </td>
+        </tr>
+
+    </table>
+
+    <br>
+
+    More results and details can be found in the paper and its supplemntary. 
+    
+
 
 
     <br>
