@@ -1,0 +1,314 @@
+<script src="http://www.google.com/jsapi" type="text/javascript"></script> 
+<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+
+
+<script>
+    MathJax = {
+        chtml: {
+            scale: 0.8
+        }
+    };
+</script>
+<script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+
+
+<style type="text/css">
+    body {
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        font-weight:300;
+        font-size:18px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 1100px;
+    }
+
+    h1 {
+        font-size:32px;
+        font-weight:300;
+    }
+
+    .disclaimerbox {
+        background-color: #eee;
+        border: 1px solid #eeeeee;
+        border-radius: 10px ;
+        -moz-border-radius: 10px ;
+        -webkit-border-radius: 10px ;
+        padding: 20px;
+    }
+
+    video.header-vid {
+        height: 140px;
+        border: 1px solid black;
+        border-radius: 10px ;
+        -moz-border-radius: 10px ;
+        -webkit-border-radius: 10px ;
+    }
+
+    img.header-img {
+        height: 140px;
+        border: 1px solid black;
+        border-radius: 10px ;
+        -moz-border-radius: 10px ;
+        -webkit-border-radius: 10px ;
+    }
+
+    img.rounded {
+        border: 1px solid #eeeeee;
+        border-radius: 10px ;
+        -moz-border-radius: 10px ;
+        -webkit-border-radius: 10px ;
+    }
+
+    a:link,a:visited
+    {
+        color: #1367a7;
+        text-decoration: none;
+    }
+    a:hover {
+        color: #208799;
+    }
+
+    td.dl-link {
+        height: 160px;
+        text-align: center;
+        font-size: 22px;
+    }
+
+    .layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+        box-shadow:
+        0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+        5px 5px 0 0px #fff, /* The second layer */
+        5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+        10px 10px 0 0px #fff, /* The third layer */
+        10px 10px 1px 1px rgba(0,0,0,0.35), /* The third layer shadow */
+        15px 15px 0 0px #fff, /* The fourth layer */
+        15px 15px 1px 1px rgba(0,0,0,0.35), /* The fourth layer shadow */
+        20px 20px 0 0px #fff, /* The fifth layer */
+        20px 20px 1px 1px rgba(0,0,0,0.35), /* The fifth layer shadow */
+        25px 25px 0 0px #fff, /* The fifth layer */
+        25px 25px 1px 1px rgba(0,0,0,0.35); /* The fifth layer shadow */
+        margin-left: 10px;
+        margin-right: 45px;
+    }
+
+    .paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+        box-shadow:
+        0px 0px 1px 1px rgba(0,0,0,0.35); /* The top layer shadow */
+
+        margin-left: 10px;
+        margin-right: 45px;
+    }
+
+
+    .layered-paper { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+        box-shadow:
+        0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+        5px 5px 0 0px #fff, /* The second layer */
+        5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+        10px 10px 0 0px #fff, /* The third layer */
+        10px 10px 1px 1px rgba(0,0,0,0.35); /* The third layer shadow */
+        margin-top: 5px;
+        margin-left: 10px;
+        margin-right: 30px;
+        margin-bottom: 5px;
+    }
+
+    .vert-cent {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    hr
+    {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    }
+</style>
+
+<html>
+<head>
+    <title>RegBN</title>
+    <meta property="og:image" content="Path to my teaser.png"/> <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/ if you update and want to force Facebook to rescrape. -->
+    <meta property="og:title" content="Creative and Descriptive Paper Title." />
+    <meta property="og:description" content="Paper description." />
+
+    <!-- Get from Google Analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src=""></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-75863369-6');
+    </script>
+</head>
+
+<body>
+<br>
+    <center>
+        <span style="font-size:36px">RegBN: Batch Normalization of Multimodal Data  with <br>  Regularization</span>
+        <table align=center width=600px>
+            <table align=center width=600px>
+                <tr>
+                    <br>
+                    <td align=center width=100px>
+                        <center>
+                            <span style="font-size:24px"><a href="https://github.com/mogvision">Morteza Ghahremani</a></span>
+                        </center>
+                    </td>
+                    <td align=center width=100px>
+                        <center>
+                            <span style="font-size:24px"><a href="https://www.professoren.tum.de/en/wachinger-christian">Christian Wachinger</a></span>
+                        </center>
+                    </td>
+                </tr>
+            </table>
+        </table>
+        <br>
+        <span style="font-size:22px"> Technical University of Munich (TUM), Germany</span>
+        <br>
+        <br>
+        </table>
+            <table align=center width=320px>
+                <tr>
+                    <td align=center width=120px>
+                        <center>
+                            <span style="font-size:24px"><a href="https://arxiv.org/abs/2310.00641">[Paper]</a></span>
+                        </center>
+                    </td>
+                    <td align=center width=120px>
+                        <center>
+                            <span style="font-size:24px"><a href='https://github.com/mogvision/regbn'>[Code]</a></span><br>
+                        </center>
+                    </td>
+                </tr>
+            </table>
+        </table>
+
+
+
+    </center>
+
+    <center>
+        <table align=center width=850px>
+            <tr>
+                <td width=260px>
+                    <center>
+                        <img class="round" style="width:900px" src="./data/front_page.jpg"/>
+                    </center>
+                </td>
+            </tr>
+        </table>
+    </center>
+
+    <hr>
+
+    <table align=center width=850px>
+        <center><h1>Abstract</h1></center>
+        <tr>
+            <td>
+                This paper introduces a novel approach for the normalization of multimodal data, called RegBN, that incorporates regularization. 
+                RegBN uses the Frobenius norm as a regularizer term to address the side effects of confounders and underlying 
+                dependencies among different data sources. 
+                RegBN generalizes well across multiple modalities and eliminates the need for learnable parameters, simplifying training and inference.
+                RegBN demonstrates broad applicability across different architectures such as 
+                MLPs, CNNs, and ViTs, enabling effective normalization of both lowand high-level features in multimodal neural networks.
+            </td>
+        </tr>
+    </table>
+    <br>
+
+    <hr>
+
+    <table align=center width=850px>
+        <center><h1>Method</h1></center>
+        <tr>
+            <td>
+                ????
+
+        <table>
+            <center>
+                <img class="round" style="width:300px" src="framework.jpg"/>
+            </center>
+        </table>
+            <center>
+            Each ????
+            </center>
+            </td>
+        </tr>
+
+    </table>
+    <br>
+    <hr>
+    <table align=center width=850px>
+        <center><h1>Experiments</h1></center>
+        <tr>
+            <td>
+                RegBN applied to ...
+            </td>
+        </tr>
+
+    </table>
+
+
+    <table align=center width=900>
+        <center><h3>Race</h3></center>
+
+        <center>
+            <img class="round" style="width:256px" src="./data/im_im0_race_0_age_0.png"/>
+            <img class="round" style="width:256px" src="./data/real3_race_0.gif"/>
+            &nbsp&nbsp
+            <img class="round" style="width:256px" src="./data/im_im23_race_0_age_0.png"/>
+            <img class="round" style="width:256px" src="./data/real4_race_23.gif"/>
+        </center>
+    </table>
+
+
+    <br>
+
+    <hr>
+
+
+    <table align=center width=450px>
+        <tr>
+        <center><h1>BibTeX</h1></center>
+            <left>
+                <pre style="background-color:lightgray;"><code>
+            @article{ghahremani2023regbn,
+                  title={RegBN: Batch Normalization of Multimodal Data with Regularization},
+                  author={Ghahremani, Morteza and Wachinger, Christian},
+                  year={2023},
+                  eprint={2310.00641},
+                  archivePrefix={arXiv},
+                  primaryClass={cs.CV}
+            }
+             </code></pre>
+        </left>
+        </tr>
+    </table>
+
+
+    <br>
+
+    <hr>
+    <br>
+
+    <table align=center width=900px>
+        <tr>
+            <td width=400px>
+                <left>
+                    <center><h1>Acknowledgements</h1></center>
+                    This project was founded by <a href="https://mcml.ai/"> Munich Center for Machine Learning: MCML.
+                </left>
+            </td>
+        </tr>
+    </table>
+
+<br>
+</body>
+</html>
