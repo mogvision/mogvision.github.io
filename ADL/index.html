@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<!-- ADL -->
+
+<!--  <span class="math inline">\( \)</span> -->
+<!--  <span class="math display">\[ \]</span>-->
+
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Welcome to mogvision blog. Here you will find my tutorials, papers, programming experiments, and more.">
+    <meta name="keyword"  content="mogvision, paper, programming, code">
+    <link rel="shortcut icon" href="/logo/shortcut.png">
+
+    <title>
+        
+          MOGvision
+        
+    </title>
+
+    <link rel="canonical" href="http://testonly196.github.io/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/hux-blog.css">
+
+
+    <!-- Pygments Highlight CSS -->
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+
+    <!-- Hamburgers css -->
+    
+<link rel="stylesheet" href="/css/hamburgers.min.css">
+
+
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China -->
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button class="hamburger hamburger--spring navbar-toggle" type="button">
+              <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+              </span>
+            </button>
+            <!--<button type="button" class="navbar-toggle">-->
+            <!--<span class="sr-only">Toggle navigation</span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--<span .intro-headerclass="icon-bar"></span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--</button>-->
+            
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+    
+                    
+                    <li>
+                        <a href="/about/">About</a>
+                    </li>
+                    
+                    
+
+
+                    
+                    <li>
+                        <a href="/contact/">Contact</a>
+                    </li>
+                    
+                    
+                    
+
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e) {
+        if ($navbar.className.indexOf('in') > 0) {
+            // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function () {
+                // prevent frequently toggle
+                if ($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            }, 400)
+
+            var pos = $toggle.className.indexOf("is-active");
+            if (pos > 0) {
+                $toggle.className = $toggle.className.substr(0, pos);
+            }
+
+
+        } else {
+            // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+            $toggle.className += " is-active";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Page Header --> <!-- style="background-image: url('/img/home-bg.jpg')" -->
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <div class="site-heading">
+                    <h1>
+                    <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+                    </script>
+                    <br>
+                    <h1 style="font-size: xx-large">ADL: Adversarial Distortion Learning <br>for Image Denoising</h1>
+
+                    <!--
+                    <a href="https://ieeexplore.ieee.org/abstract/document/9292438">
+                        <img alt="FFD" src="/logo/ieee.png"
+                        width="120" height="55">
+                    </a>
+                    -->
+
+                    <a href="https://arxiv.org/abs/???">
+                        <img alt="ADL" src="/logo/arxiv.png"
+                        width="120" height="60" style="margin: 0px 20px 0px 20px;">
+                    </a>
+
+                    <a href="https://github.com/ADL/">
+                        <img alt="ADL" src="/logo/github.png"
+                        width="60" height="60">
+                    </a>
+
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        April 24, 2022
+                    </h1>
+                    <!--<hr class="small">-->
+                    <span class="subheading"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+</header>
+
+
+
+
+
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                col-sm-12
+                col-xs-12
+                post-container">
+
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
+
+                <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+                </script>
+                    
+
+<!--  <span class="math inline">\( \)</span> -->
+<!--  <span class="math display">\[ \]</span>-->
+
+
+                <p>Image denoising aims to recover latent noise-free two (2D)/three-dimensional (3D) image data <span class="math inline">\(\mathbf{x}\)</span> from its noisy counterpart <span class="math inline">\(\mathbf{y}=\mathbf{x}+\mathbf{n}\)</span>, where <span class="math inline">\(\mathbf{n}\)</span> denotes noise that is independent with respect to <span class="math inline">\(\mathbf{x}\)</span>. The captured images by digital imaging devices are often degraded from their latent observation due to the noise so denoising is essential and it is a preliminary step in many computer vision, image processing, and medical imaging applications. In recent years, deep learning methods have been widely used for the enhancement of images. Despite the great success of CNNs in images denoising, the contents of denoised images by such techniques still suffer from poor textural information. Although several works show less tendency toward overfitting and being data-driven, their performance is still highly dependent on the training samples. This aspect of the current CNN techniques limits their generalizability to different sorts of images. These drawbacks motivate us to propose a novel deep learning denoiser that well preserves the textural information without changing the contrast of to-be-denoised images. We introduce a novel multiscale learning scheme to further participate high-level features in the output results during training, so improving <i>texture contents</i>. Our network does not need training data whose distribution is close to that of the test data, so improving the <i>generalizability</i> of the proposed network. ADL achieved state-of-the-art results on computer vision and biomedical images, including BSD68 and CBSD68. A part of the results is reported below. Implementation details and more results can be found at <span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&#65282;Adversarial Distortion Learning for Medical Image Denoising, arXiv 2022&#65282;">
+                [1]</span>.</p>
+
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+  vertical-align: middle;
+  margin-bottom: 5px;
+}
+</style>
+
+<ul><li>Results on the <strong>BSD68</strong> dataset for Additive white Gaussian noise<sup id="fnref:1"></sup> </li></ul>
+<table style="width:98%" cellspacing="0">
+  <tr>
+    <td>Noise Level</td>
+    <td>BM3D</td>
+    <td>WNNM</td>
+    <td>DnCNN</td>
+    <td>NLRN</td>
+    <td>FOCNet</td>
+    <td>MWCNN</td>
+    <td>DRUNet</td>
+    <td>SwinIR</td>
+    <td>ADL (ours)</td>
+  </tr>
+  <tr>
+    <td>15<td>31.08<td>31.37<td>31.73<td>31.88<td>31.83<td>31.86<td>31.91<td>31.97<td><strong>32.58</strong>
+  </tr>
+  <tr>
+    <td>25<td>  28.57<td>   28.83<td>   29.23<td>   29.41<td>   29.38 <td>  29.41 <td>  29.48  <td> 29.50 <td>  <strong>30.27 </strong>
+  </tr>
+  <tr>
+    <td>50<td>  25.60 <td>  25.87   <td>26.23   <td>26.47<td>   26.50 <td>  26.53<td>   26.59  <td> 26.58 <td> <strong>27.23 </strong>
+  </tr>
+</table>
+<img src="/ADL/bsd68.png" class="" style="width:98%">
+</p>
+
+
+<ul><li>Results on the <strong>CBSD68</strong> dataset for Additive white Gaussian noise<sup id="fnref:1"></sup> </li></ul>
+<table style="width:98%" cellspacing="0">
+  <tr>
+    <td>Noise Level</td>
+    <td>BM3D</td>
+    <td>WNNM</td>
+    <td>EPLL</td>
+    <td>MLP</td>
+    <td>CSF</td>
+    <td>TNRD</td>
+    <td>DnCNN</td>
+    <td>DRUNet</td>
+    <td>SwinIR</td>
+    <td>ADL (ours)</td>
+  </tr>
+
+  <tr>
+    <td>15<td>  33.52 <td>  33.90 <td>  33.86  <td> 33.87  <td> 33.91 <td>  -  <td> 34.10  <td> 34.30  <td> 34.42  <td> <strong> 34.61 </strong>
+  </tr>
+  <tr>
+    <td>25 <td> 30.71  <td> 31.24 <td>  31.16 <td>  31.21  <td> 31.28  <td> 31.24 <td>  31.43  <td> 31.69  <td> 31.78  <td> <strong> 32.18 </strong>
+  </tr>
+  <tr>
+   <td> 50  <td>27.38  <td> 27.95  <td> 27.86  <td> 27.96  <td> 28.05   <td>28.06   <td>28.16  <td> 28.51  <td> 28.56  <td> <strong>  29.02 </strong>
+  </tr>
+</table>
+<img src="/ADL/cbsd68.png" class="" style="width:98%">
+</p>
+
+
+                <h3 id="References"><a href="#References" class="headerlink" title="References">
+                </a>Reference</h3>
+                <div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">
+                <!-- paper -->
+                [1] </span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Adversarial Distortion Learning for Medical Image Denoising, arXiv 2022 
+                    <strong><a href="???">paper</a></strong><a href="#fnref:1" rev="footnote">, 
+                    <strong><a href="https://arxiv.org/abs/???">arXiv</a>,
+                    <strong><a href="https://github.com/mogvision/ADL">code</a>,
+                    </strong><a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px"></div>
+                <hr>
+
+                <!--
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>      
+                 -->      
+
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus start 
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "testonly196";
+    var disqus_identifier = "http://testonly196.github.io/ADL/";
+    var disqus_url = "http://testonly196.github.io/ADL/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+-->
+<!-- disqus end -->
+
+
+
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <!-- Footer -->
+
+</body>
+
+</html>
