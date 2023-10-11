@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<!-- CSIGAN -->
+
+<!--  <span class="math inline">\( \)</span> -->
+<!--  <span class="math display">\[ \]</span>-->
+
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Welcome to mogvision blog. Here you will find my tutorials, papers, programming experiments, and more.">
+    <meta name="keyword"  content="mogvision, paper, programming, code">
+    <link rel="shortcut icon" href="/logo/shortcut.png">
+   <link rel='alternate' type='application/rss+xml' title='RSS' href='/atom.xml'>  
+
+    <title>
+        
+          MOGvision
+        
+    </title>
+
+    <link rel="canonical" href="http://testonly196.github.io/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/hux-blog.css">
+
+
+    <!-- Pygments Highlight CSS -->
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+
+    <!-- Hamburgers css -->
+    
+<link rel="stylesheet" href="/css/hamburgers.min.css">
+
+
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China -->
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button class="hamburger hamburger--spring navbar-toggle" type="button">
+              <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+              </span>
+            </button>
+            <!--<button type="button" class="navbar-toggle">-->
+            <!--<span class="sr-only">Toggle navigation</span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--<span .intro-headerclass="icon-bar"></span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--</button>-->
+            
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                    
+    
+                    
+                    <li>
+                        <a href="/about/">About</a>
+                    </li>
+                    
+                    
+
+
+                    
+                    <li>
+                        <a href="/contact/">Contact</a>
+                    </li>
+                    
+                    
+
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e) {
+        if ($navbar.className.indexOf('in') > 0) {
+            // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function () {
+                // prevent frequently toggle
+                if ($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            }, 400)
+
+            var pos = $toggle.className.indexOf("is-active");
+            if (pos > 0) {
+                $toggle.className = $toggle.className.substr(0, pos);
+            }
+
+
+        } else {
+            // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+            $toggle.className += " is-active";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Page Header --> <!-- style="background-image: url('/img/home-bg.jpg')" -->
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <div class="site-heading">
+                    <h1>
+                    <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+                    </script>
+                    <br>
+                    <h1 style="font-size: xx-large">Medical Image Enhancement by <br> CSI-GAN
+                    <br>
+                    <a href="https://link.springer.com/chapter/10.1007/978-3-030-59713-9_64">
+                        <img alt="CSIGAN" src="/logo/miccai.jpg"
+                        width="150" height="52">
+                    </a>
+
+
+                    <a href="https://livrepository.liverpool.ac.uk/3106288/1/MICCAI-MYH-SUB-2.pdf">
+                        <img alt="CSIGAN" src="/logo/arxiv.png"
+                        width="120" height="60" style="margin: 0px 20px 0px 20px;">
+                    </a>
+
+                    <a href="https://imed.nimte.ac.cn/CORN.html">
+                        <img alt="CSIGAN" src="/logo/github.png"
+                        width="60" height="60">
+                    </a>
+
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        April 24, 2022
+                    </h1>
+                    <!--<hr class="small">-->
+                    <span class="subheading"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+</header>
+
+
+
+
+
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                col-sm-12
+                col-xs-12
+                post-container">
+
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
+
+                <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+                </script>
+                    
+
+<!--  <span class="math inline">\( \)</span> -->
+<!--  <span class="math display">\[ \]</span>-->
+
+
+                <p>High-quality images with adequate contrast and details are crucial for many medical imaging applications: e.g., segmentation  and computer-aided diagnosis. However, medical images acquired using the same or different sensors usually have a large variation in quality - intensity inhomogeneity, noticeable blur and poor contrast, that are often inherited from the image acquisition process.
+                Cycle-consistent generative adversarial network (CycleGAN) has an advantage of learning knowledge represented with typical images in one domain and transferring it to the other domain without paired images. However, CycleGAN mainly exploits global constraints on appearance and cycle-consistency, which is weak in learning local details. To address the weakness, two novel constraints including an illumination regularization and a structure loss are proposed in our new method, which we refer it to CSI-GAN for medical image enhancement. In our work, low- and high-quality images are treated as those in two different domains and high-quality images can be easily identified by clinicians. The main contributions of this paper are summarized as follows. (1) A novel CSI-GAN is proposed to improve low-quality medical images with better illumination conditions while well-preserving structure details. (2) The proposed method has undergone rigorous quantitative and qualitative evaluation using corneal confocal microscopy and endoscopic images in an unified manner. (3) As a complementary output, we will release the CCM dataset (both poor and good quality image sets) online available to the public in the future. </p>
+
+                <h3>Proposed Approach</h3>
+                <p>
+                The overview of the CSI-GAN architecture is shown in <strong>Figure 1</strong>. Different from conditional adversarial network (cGAN), CycleGAN learns a suitable translation function between the source domain A and the target domain B without the paired images in the training. In this paper, we assume that A and B are image domains with low and high quality images, respectively. CycleGAN adopts two generator/discriminator pairs (GA→B/DB, GB→A/DA), where GA→B (GB→A) learns to translate an image from domain A (B) into domain B (A), and DA (DB) is trained to distinguish between real samples from domain A (B) and the translated images from domain B (A). In order to prevent two generators from contradicting each other, the whole framework contains both forward and backward cycle consistency, as shown in <strong>Figure 1</strong>. Each a∈A is expected to be reconstructed as much as possible in forward cycle, which is represented as a→GA→B(a)→GB→A(GA→B(a))≈a. This holds for backward cycle as well: b→GB→A(b)→GA→B(GB→A(b))≈b. In addition, two generators are regularized as an identity mapping separately when real samples from A (B) are applied to GB→A (GA→B), i.e., GB→A(a)≈a and GA→B(b)≈b. 
+                </p>
+
+<figure>
+    <img src="/CSIGAN/framework.webp" class="" style="width:95%">
+    <figcaption><strong>Figure 2</strong>. Architecture of CSI-GAN. It comprises two generator/discriminator pairs (GA→B/DB, GB→A/DA) and two types of cycle consistency (forward/backward cycle consistency). A and B refer to low-quality and high-quality image domains, respectively. L_cyc and L_identity represent the cycle consistency term and the identity mapping loss. The proposed illumination regularization and structure loss are represented as L_illumination and L_structure, respectively. Image courtesy of <sup id="fnref:1"><a href="#fn:1"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&#65282;Cycle Structure and Illumination Constrained GAN for Medical Image Enhancement. MICCAI 2020.&#65282;">[1]</span></a></sup>.
+    </figcaption>
+</figure>
+
+
+
+
+
+
+
+
+
+            <h3> Experimental Results</h3> 
+            <ul><li><h4>Evaluation on Endoscopic Images</h4></li></ul>
+
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+  vertical-align: middle;
+  margin-bottom: 5px;
+}
+</style>
+<table style="border:1.8px solid black;margin-left:auto;margin-right:auto;width:80%" >
+<caption><strong>Table 1</strong>. No-reference assessment results (mean ± standard deviation) of different enhancement methods</caption>
+  <tr>
+    <td>Methods</td>
+    <td>NIQE</td>
+    <td>BRISQUE</td>
+    <td>PIQE</td>
+  </tr>
+
+  <tr>
+    <td>Original  <td>  4.40±0.67  <td> 36.70±5.42 <td> 37.27±11.50
+  </tr>
+  <tr>
+    <td>DCP <td> 4.13±0.64  <td> 35.45±5.59 <td> 35.09±6.37
+  </tr>
+  <tr>
+    <td>NST <td> 9.42±1.96 <td>  30.28±3.64 <td> 25.48±6.17
+  </tr>
+
+  <tr>
+   <td> MSG-Net <td> 7.26±0.55 <td>56.72±2.29  <td>93.43±11.96
+  </tr>
+    <tr>
+    <td>EnlightenGAN <td> 4.38±0.88 <td> <strong>24.35±4.18</strong> <td> 33.07±6.47
+  </tr>
+
+    <tr>
+    <td>CycleGAN <td> 4.38±0.62  <td> 27.81±7.70  <td> 29.54±5.28
+  </tr>
+      <tr>
+    <td> CSI-GAN (ours) <td> <strong>3.84±0.64</strong>  <td>  24.52±5.38  <td> <strong>23.48±6.42</strong>
+  </tr>
+</table>
+</p>
+
+
+<figure>
+    <img src="/CSIGAN/fig1.webp" class="" style="width:90%">
+    <figcaption><strong>Figure 2</strong>. Example result of different methods in endoscopic image enhancement. Image courtesy of <sup id="fnref:1"><a href="#fn:1"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&#65282;Cycle Structure and Illumination Constrained GAN for Medical Image Enhancement. MICCAI 2020.&#65282;">[1]</span></a></sup>.
+    </figcaption>
+</figure>
+
+
+            <ul><li><h4>Evaluations on Corneal Confocal Microscopy</h4></li></ul>
+
+
+<table style="border:1.8px solid black;margin-left:auto;margin-right:auto;width:95%" >
+<caption><strong>Table 2</strong>. SNR and segmentation performance of the original and enhanced CCM images using different methods. (S: structure loss; I: illumination regularization).</caption>
+    <tr>
+    <td></td>
+    <td></td>
+    <td>SNR</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>Segmentation</td>
+    <td></td>
+    </tr>
+
+    <tr>
+    <td>Methods</td>
+    <td>r=3</td>
+    <td>r=5</td>
+    <td>r=7</td>
+    <td>ACC</td>
+    <td>SEN</td>
+    <td>Kappa</td>
+    <td>Dice</td>
+    </tr>
+
+<tr>
+<td>Original  <td>  17.472 <td> 17.611 <td> 17.650 <td> 0.969 <td>  0.421 <td>  0.528 <td>  0.541
+<tr>
+<tr>
+<td>CLAHE <td> 16.560 <td> 16.733 <td> 16.793 <td> 0.970   <td>0.488  <td> 0.570 <td>  0.584
+<tr>
+<tr>
+<td>DCP <td>14.587 <td> 14.879 <td> 14.986 <td> 0.964 <td>  0.708 <td>  0.615  <td> 0.633
+<tr>
+<td>NST <td> 16.606 <td>16.887 <td> 17.006<td>  0.958   <td>0.490 <td>  0.494 <td>  0.515
+<tr>
+<tr>
+<td>MSG-Net<td>  19.122<td>  19.915 <td> 20.217 <td> 0.964  <td> 0.441  <td> 0.495 <td>  0.512
+<tr>
+<tr>
+<td>EnlightenGAN <td> 18.407  <td>19.257 <td> 19.699 <td> 0.960  <td> 0.671  <td> 0.580  <td> 0.601
+<tr>
+<tr>
+<td>CycleGAN <td>  19.557 <td> 20.138  <td>20.409 <td> 0.971 <td>  0.748 <td>  0.673 <td>  0.688
+<tr>
+<tr>
+<td>CSI-GAN <td> <strong> 20.352</strong>  <td><strong>21.057</strong> <td> <strong>21.413</strong> <td> <strong>0.977</strong> <td> <strong>0.788 </strong> <td><strong> 0.736 </strong> <td> <strong>0.748</strong>
+<tr>
+</table>
+
+
+<figure>
+    <img src="/CSIGAN/fig2.webp" class="" style="width:96%">
+    <figcaption><strong>Figure 2</strong>. Cycle Structure and Illumination Constrained GAN for Medical Image Enhancement. Image courtesy of <sup id="fnref:1"><a href="#fn:1"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&#65282;Cycle Structure and Illumination Constrained GAN for Medical Image Enhancement. MICCAI 2020.&#65282;">[1]</span></a></sup>.
+    </figcaption>
+</figure>
+
+
+
+                <h3 id="References"><a href="#References" class="headerlink" title="References">
+                </a>Reference</h3>
+                <div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">
+                <!-- paper -->
+                [1] </span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Cycle Structure and Illumination Constrained GAN for Medical Image Enhancement. MICCAI 2020.
+                    <strong><a href="https://link.springer.com/chapter/10.1007/978-3-030-59713-9_64">paper</a></strong><a href="#fnref:1" rev="footnote">, 
+                    <strong><a href="https://livrepository.liverpool.ac.uk/3106288/1/MICCAI-MYH-SUB-2.pdf">arXiv</a>,
+                    <strong><a href="https://imed.nimte.ac.cn/CORN.html">code & data</a>,
+                    </strong><a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px"></div>
+                <hr>
+                <!--
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>      
+                 -->      
+
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus start 
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "testonly196";
+    var disqus_identifier = "http://testonly196.github.io/ADL/";
+    var disqus_url = "http://testonly196.github.io/ADL/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+-->
+<!-- disqus end -->
+
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <!-- Footer -->
+
+</body>
+
+</html>
