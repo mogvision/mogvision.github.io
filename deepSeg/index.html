@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<!-- deepSeg -->
+
+<!--  <span class="math inline">\( \)</span> -->
+<!--  <span class="math display">\[ \]</span>-->
+
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Welcome to mogvision blog. Here you will find my tutorials, papers, programming experiments, and more.">
+    <meta name="keyword"  content="mogvision, paper, programming, code">
+    <link rel="shortcut icon" href="/logo/shortcut.png">
+   <link rel='alternate' type='application/rss+xml' title='RSS' href='/atom.xml'>  
+
+    <title>
+        
+          MOGvision
+        
+    </title>
+
+    <link rel="canonical" href="http://testonly196.github.io/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/hux-blog.css">
+
+
+    <!-- Pygments Highlight CSS -->
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+
+    <!-- Hamburgers css -->
+    
+<link rel="stylesheet" href="/css/hamburgers.min.css">
+
+
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China -->
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button class="hamburger hamburger--spring navbar-toggle" type="button">
+              <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+              </span>
+            </button>
+            <!--<button type="button" class="navbar-toggle">-->
+            <!--<span class="sr-only">Toggle navigation</span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--<span .intro-headerclass="icon-bar"></span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--</button>-->
+            
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+    
+                    
+                    <li>
+                        <a href="/about/">About</a>
+                    </li>
+                    
+                    
+
+
+                    
+                    <li>
+                        <a href="/contact/">Contact</a>
+                    </li>
+                    
+                    
+
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e) {
+        if ($navbar.className.indexOf('in') > 0) {
+            // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function () {
+                // prevent frequently toggle
+                if ($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            }, 400)
+
+            var pos = $toggle.className.indexOf("is-active");
+            if (pos > 0) {
+                $toggle.className = $toggle.className.substr(0, pos);
+            }
+
+
+        } else {
+            // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+            $toggle.className += " is-active";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Page Header --> <!-- style="background-image: url('/img/home-bg.jpg')" -->
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <div class="site-heading">
+                    <h1>
+                    <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+                    </script>
+                    <br>
+                    <h1 style="font-size: xx-large">Deep Segmentation of Point Clouds <br>of Wheat
+
+                    <br>
+                    <a href="https://www.frontiersin.org/articles/10.3389/fpls.2021.608732/full">
+                        <img alt="deepSeg" src="/logo/frontiers.png"
+                        width="140" height="45">
+                    </a>
+
+
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        April 24, 2022
+                    </h1>
+                    <!--<hr class="small">-->
+                    <span class="subheading"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+</header>
+
+
+
+
+
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                col-sm-12
+                col-xs-12
+                post-container">
+
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
+
+                <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+                </script>
+                    
+
+<!--  <span class="math inline">\( \)</span> -->
+<!--  <span class="math display">\[ \]</span>-->
+
+
+                <p>3D and 4D phenotyping has the potential to provide reliable, comprehensive information on morphological and developmental traits in plants. With recent improvements in image acquisition and 3D reconstruction, future studies would benefit from rapidly assessing 3D models. Accurate 3D models enable quantitative analyses of various traits, and a high-throughput spatial and temporal 3D analysis tool could monitor impacts of different treatments in experiments and, ultimately, management decisions in production conditions. 3D or higher-order data, however, requires complex processes for both acquisition and computation while quality can vary due to numerous factors such as imaging noise, occlusion, spikes, holes, lack of homogeneity, and interference from cluttered backgrounds. Despite the obvious attractions, few segmentation techniques have been reported for 3D point clouds of plants and they tend to require specific conditions that cannot easily be generalized. </p>
+                <p>
+                In this study, we expanded our recent segmentation method called <a href="/PatternNet/">Pattern-Net</a> to wheat point clouds. This study is the <it>first</it> to segment the point clouds of wheat into defined organs and to analyse their traits directly in 3D space. Point clouds have no regular grid and thus their segmentation is challenging. Pattern-Net creates a dynamic link among neighbors to seek stable patterns from a 3D point set across several levels of abstraction using the K-nearest neighbor algorithm. To this end, different layers are connected to each other to create complex patterns from the simple ones, strengthen dynamic link propagation, alleviate the vanishing-gradient problem, encourage link reuse and substantially reduce the number of parameters. The proposed deep network is capable of analysing and decomposing unstructured complex point clouds into semantically meaningful parts. Experiments on a wheat dataset verify the effectiveness of our approach for segmentation of wheat in 3D space.
+                </p>
+
+                <h3>Proposed Approach</h3>
+                <p>
+                The basic steps of the proposed segmentation network are depicted in <strong>Figure 1</strong>. The framework has five main layers: points downsampler (PD), search pattern (SP), learn pattern (LP), linkage patterns (LPs), and fully connected (FC) layers.</p>
+
+<figure>
+    <img src="/deepSeg/framework.jpg" class="" style="width:96%">
+    <figcaption><strong>Figure 1</strong>.  Architecture of Pattern-Net for wheat's point cloud segmentation. Image courtesy of <sup id="fnref:1"><a href="#fn:1"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&#65282; Deep segmentation of point clouds of wheat. Frontiers in Plant Science, 12, p.429.&#65282;">[1]</span></a></sup>.
+    </figcaption>
+</figure>
+
+                
+                <ul><li><strong>Points Downsampling (PD) Layer</strong>: input 3D point cloud, P, is split into L sets via a random downsampling operator, in such a way that all the 3D point subsets are completely different while their overall schemes/abstracts are similar to each other. The random down-sampling operator must provide</p>
+                </p>
+
+                    i- <span class="math inline">\(P{\{l\}} \cap P\{j\} = \emptyset \quad \forall \,l,j \in \{1,...,L\}\ \&\  l\neq j,\)</span><br>
+                    ii-<span class="math inline">\(\bigcup^L_{l=1}P{\{l\}} = P\)</span><br>
+                    iii-<span class="math inline">\(H(P{\{l\}}) \simeq H(P{\{j\}}) \quad   \quad \forall\, l,j \in \{1,...,L\}\ \&\  l\neq j\)</span>
+
+                where
+                <ul><li><span class="math inline">\(P=\{p_m\in\mathbb{R}^d, m=1,...,M\}\)</span>: input wheat point cloud<br>
+                <li><span class="math inline">\( \Gamma_c=\{\gamma_c\in\mathbb{R}, c=1,...,C\}\)</span>: segmentation with C classes<br>
+                <li><span class="math inline">\(M\)</span>: total number of 3D points</li>
+                </ul>
+            </ul></li>
+                <ul><li><strong>Search Pattern (SP) Layer</strong>: The task of this layer is to search all possible relationships between the query point/feature (fq = (fq, x, fq, y, fq, z)) and its neighbors via the KNN algorithm. For each of K nearest neighbor responses (fi = (fi, x, fi, y, fi, z), i = {1, 2, .., K}, i ≠ q), we compute all three possible edges emanating from the query point along three axes (i.e., fi − fq), and stack it with the query point coordinates/feature fq. Thus, there is a feature space of size K × 6 for each query point. Adding edges to the feature space is important as KNN sorts K nearest responses and how far KNN responses are from the query point should be taken into account.
+            </ul></li>
+
+            <ul><li><strong>Learn Pattern (LP) Layer</strong>: The function of this layer is to find and to learn a meaningful relationship/pattern between all input 3D points via a two consecutive 2D convolution kernel followed by a batch normalization operator. A max-pooling operator is then applied to the output weights to get the features of the query point. The max-pooling is a symmetric function that guarantees that the extracted features are permutation-invariant (Property I). The combination of 2D convolution kernels, batch normalization and max-pooling operators is often called multi-layer perceptron (MLP). Inside each decomposed set, relationships between each query point and its neighbors are sought by the SP layer and then learned by the LP layer. This is done by applying and concatenating four MLPs {32, 32, 32, 32}, yielding from low-level features to high-level ones. Hence, there is a feature vector of length 128 for each 3D point inside each decomposed set.
+            </ul></li>
+
+            <ul><li><strong>Linkage Patterns (LPs) Layer</strong>: This layer contains several MLP layers and it aims to link the patterns that are similar across all the decomposed levels. As can be seen in the figure, the LPs layer is fed by all the low-level and high-level features. By applying a max-pooling operator to the features of the points inside a sampling set, a description vector of length 128 is obtained. We arrange all the local description vectors ψl, l ∈ {1, …, L} in a matrix Ψ. We then apply an MLP to the whole cube features of the points to yield a global description vector ϕ. As discussed in section 3.3, the global description vector is used as a guideline for extracting stable patterns in the feature space.
+            </ul></li>
+
+            <ul><li><strong>Fully-Connected (FC) Layer</strong>: This layer functions as a decoder and maps the patterns extracted in the preceding layer into Γ labels. The output of the LPs layer is decoded by three consecutive MLPs {256, 256, Γ}. The drop-rate of all the decoding MLPs except the last one is fixed at 23.
+            </ul></li>
+
+
+                <h3>Experimental Results</h3> 
+
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+  vertical-align: middle;
+  margin-bottom: 5px;
+}
+</style>
+<table style="border:1.8px solid black;margin-left:auto;margin-right:auto;width:70%" >
+<caption><strong>Table 1</strong>. Segmentation results of the proposed method on the wheat dataset</caption>
+    <td>Network</td>
+    <td>#Input points</td>
+    <td>mean accuracy</td>
+    <td>mean IoU</td>
+  </tr>
+<tr>
+<td>Pattern-Net <td>512 <td>91.17 <td>80.19
+</tr>
+<tr>
+<td><td>1,024<td> 91.76 <td>80.85
+</tr>
+<tr>
+<td><td>2,048<td> 92.07<td> 81.26
+</tr>
+<tr>
+<td><td>4,096 <td>92.20 <td>81.34
+</tr>
+<tr>
+<td><td>8,192 <td>92.27<td>81.74
+</tr>
+<tr>
+<td>Light Pattern-Net<td> 10,240 <td>87.32<td> 76.47
+</tr>
+<tr>
+<td><td>12,288 <td>87.61 <td>76.77
+</tr>
+<tr>
+<td><td>14,336 <td>87.97 <td>77.12
+</tr>
+<tr>
+<td><td>16,384 <td>88.13 <td>77.25
+</tr>
+</table>
+</p>
+
+
+<figure>
+    <img src="/deepSeg/visual.jpg" class="" style="width:65%">
+    <figcaption><strong>Figure 2</strong>. Segmentation results for point clouds containing 2,048 points. (Left) The ground truth samples (ears are shown in red and non-ears in green) annotated in MeshLab; (middle) The predicted/segmented labels; (Right) The difference between the ground truth and the segmented results is shown in dark blue. Image courtesy of <sup id="fnref:1"><a href="#fn:1"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&#65282;Deep segmentation of point clouds of wheat. Frontiers in Plant Science, 12, p.429.&#65282;">[1]</span></a></sup>.
+    </figcaption>
+</figure>
+
+
+                <h3 id="References"><a href="#References" class="headerlink" title="References">
+                </a>Reference</h3>
+                <div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">
+                <!-- paper -->
+                [1] </span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Deep segmentation of point clouds of wheat. Frontiers in Plant Science, 12, p.429.
+                    <strong><a href="https://www.frontiersin.org/articles/10.3389/fpls.2021.608732/full">paper</a></strong><a href="#fnref:1" rev="footnote">
+                    </strong><a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px"></div>
+                <hr>
+
+                <!--
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>      
+                 -->      
+
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus start 
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "testonly196";
+    var disqus_identifier = "http://testonly196.github.io/ADL/";
+    var disqus_url = "http://testonly196.github.io/ADL/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+-->
+<!-- disqus end -->
+
+
+
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <!-- Footer -->
+
+</body>
+
+</html>
