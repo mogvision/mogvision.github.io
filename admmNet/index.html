@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<!-- admmNet -->
+
+<!--  <span class="math inline">\( \)</span> -->
+<!--  <span class="math display">\[ \]</span>-->
+
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Welcome to mogvision blog. Here you will find my tutorials, papers, programming experiments, and more.">
+    <meta name="keyword"  content="mogvision, paper, programming, code">
+    <link rel="shortcut icon" href="/logo/shortcut.png">
+   <link rel='alternate' type='application/rss+xml' title='RSS' href='/atom.xml'>  
+
+    <title>
+        
+          MOGvision
+        
+    </title>
+
+    <link rel="canonical" href="http://testonly196.github.io/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/hux-blog.css">
+
+
+    <!-- Pygments Highlight CSS -->
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+
+    <!-- Hamburgers css -->
+    
+<link rel="stylesheet" href="/css/hamburgers.min.css">
+
+
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China -->
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button class="hamburger hamburger--spring navbar-toggle" type="button">
+              <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+              </span>
+            </button>
+            <!--<button type="button" class="navbar-toggle">-->
+            <!--<span class="sr-only">Toggle navigation</span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--<span .intro-headerclass="icon-bar"></span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--</button>-->
+            
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+    
+                    
+                    <li>
+                        <a href="/about/">About</a>
+                    </li>
+                    
+                    
+
+
+                    
+                    <li>
+                        <a href="/contact/">Contact</a>
+                    </li>
+                    
+                    
+
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e) {
+        if ($navbar.className.indexOf('in') > 0) {
+            // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function () {
+                // prevent frequently toggle
+                if ($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            }, 400)
+
+            var pos = $toggle.className.indexOf("is-active");
+            if (pos > 0) {
+                $toggle.className = $toggle.className.substr(0, pos);
+            }
+
+
+        } else {
+            // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+            $toggle.className += " is-active";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Page Header --> <!-- style="background-image: url('/img/home-bg.jpg')" -->
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <div class="site-heading">
+                    <h1>
+                    <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+                    </script>
+                    <br>
+                    <br>
+                    <h1 style="font-size: xx-large">Solving Linear Inverse Problems <br>using Wavelet-Nets</h1>
+
+                    <a href="https://www.mdpi.com/2073-8994/13/6/1083/htm">
+                        <img alt="admmNet" src="/logo/pdf.png"
+                        width="55" height="55">
+                    </a>
+
+                    <a href="https://github.com/bptiddeman/PCWN">
+                        <img alt="admmNet" src="/logo/github.png"
+                        width="60" height="60">
+                    </a>
+
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        March 22, 2022
+                    </h1>
+                    <!--<hr class="small">-->
+                    <span class="subheading"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+</header>
+
+
+
+
+
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                col-sm-12
+                col-xs-12
+                post-container">
+
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
+
+                <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+                </script>
+                    
+
+<!--  <span class="math inline">\( \)</span> -->
+<!--  <span class="math display">\[ \]</span>-->
+
+
+                <p>Linear inverse problems occur frequently in image processing applications. These are asymmetrical problems, in which the forward solution is well defined and straightforward to compute, but the inverse problem is often ill-posed and difficult to compute. The goal is to estimate an underlying (uncorrupted) signal x, given a set of noisy measurements y, with noise n that have undergone some known linear transformation A, i.e.,
+                <span class="math display">\[y=Ax+n\]</span> 
+                One standard approach to solving such problems, which are typically ill-posed, involves regularising the problem using a signal prior ϕ(x), i.e.,
+                <span class="math display">\[argminx\frac{1}{2}||y−Ax||_2^2+λϕ(x)\]</span> 
+                where λ is a non-negative weighting term. Generally the signal prior is intended to encourage sparsity of x. in some basis, such as a wavelet domain. Such hand designed priors have certain advantages, for example they form a convex optimisation problem with global optimality, and provide various theoretical guarantees. Unfortunately such priors are often too generic to constrain the problem, and can result in noise like images or other artefacts. In this paper, we first explore previous work related to solving linear inverse problems, and possible image representations that could help to support their solution. Then we introduce the Principal Component Wavelet Networks, and demonstrate that this relatively simple approach can produce results that are comparable to the state-of-the-art, with a fixed training cost and are robust to over-fitting.
+                </p>
+                <p>
+                Here, a summary of results is reported and the readers can refer to <span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&#65282;Principal Component Wavelet Networks for Solving Linear Inverse Problems. Symmetry. 2021 Jun;13(6):1083.&#65282;">
+                [1]</span> for details about the methodology and its implementation.
+                </p>
+
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+  vertical-align: middle;
+  margin-bottom: 5px;
+}
+</style>
+
+Method  BI  SR  PID CS  SI
+
+
+
+<table style="border:1.8px solid black;margin-left:auto;margin-right:auto;width:98%" >
+<caption><strong>Table 1</strong>. The results of our method compared to other methods on ImageNet, including GAN based approaches (DU-ADMM and OneNet) for Blockwise Inpainting (BI), Super Resolution (SR), Pixelwise Inpainting Denoising (PID), Compressive Sensing (CS) and Scattered Inpainting (SI). Figures show the mean and standard deviation Peak Signal to Noise Ration (PSNR) across the test set.</caption>
+  <tr>
+    <td>Method</td>
+    <td>BI</td>
+    <td>SR</td>
+    <td>PID</td>
+    <td>CS</td>
+    <td>SI</td>
+  </tr>
+</tr>
+<td>DU-ADMM <td> <strong>26.59±3.0</strong><td> 26.38±2.5 <td>24.91±1.8 <td>-  <td> 27.92±2.5
+</tr>
+<tr>
+<td>OneNet <td> 22.25±2.9<td> 26.11±3.0 <td>25.44±1.8 <td><strong>27.34±5.2</strong> <td>22.85±2.6
+</tr>
+<tr>
+<td>Wavelet <td>19.33±2.9 <td><strong>26.70±2.4</strong><td>20.18±1.5<td>13.79±3.7<td>27.65±2.8
+</tr>
+<tr>
+<td>Ours   <td> 26.09±2.3<td>23.1±2.9<td><strong>27.87±2.8</strong><td>25.73±2.0<td><strong>28.04±2.3</strong>
+</tr>
+</table>
+
+
+
+
+<figure>
+    <img src="/admmNet/fig1.png" class="" style="width:98%">
+    <figcaption><strong>Figure 1</strong>. Example results from our network on the blockwise (BI), scattered (SI) and pixelwise denoise (PID) inpainting problems after 100 iterations. Columns from left to right: original image, BI input, BI output, SI input, SI output, PID input and PID output. The figures show the Peak Signal to Noise Ratio (PSNR) of the output image. Image courtesy of <sup id="fnref:1"><a href="#fn:1"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&#65282;Principal Component Wavelet Networks for Solving Linear Inverse Problems. Symmetry. 2021 Jun;13(6):1083.&#65282;">[1]</span></a></sup>.
+    </figcaption>
+</figure>
+
+
+
+
+
+<figure>
+    <img src="/admmNet/fig2.png" class="" style="width:60%">
+    <figcaption><strong>Figure 2</strong>.  Example results from our network on the compressive sensing (CS) and super resolution (SR) problems on Labelled Faces in the Wild images after 100 iterations. Columns from left to right: original image, CS output, SR input, SR output. The figures show the PSNR of the output image.. Image courtesy of <sup id="fnref:1"><a href="#fn:1"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&#65282;Principal Component Wavelet Networks for Solving Linear Inverse Problems. Symmetry. 2021 Jun;13(6):1083.&#65282;">[1]</span></a></sup>.
+    </figcaption>
+</figure>
+
+
+                <h3 id="References"><a href="#References" class="headerlink" title="References">
+                </a>Reference</h3>
+                <div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">
+                <!-- paper -->
+                [1] </span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Principal Component Wavelet Networks for Solving Linear Inverse Problems. Symmetry. 2021 Jun;13(6):1083.
+                    <strong><a href="https://www.mdpi.com/2073-8994/13/6/1083">paper</a></strong><a href="#fnref:1" rev="footnote">, 
+                    <strong><a href="https://github.com/bptiddeman/PCWN" src="/logo/arxiv.png">code</a>,
+                    </strong><a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px"></div>
+                <hr>
+
+                <!--
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>      
+                 -->      
+
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus start 
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "testonly196";
+    var disqus_identifier = "http://testonly196.github.io/ADL/";
+    var disqus_url = "http://testonly196.github.io/ADL/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+-->
+<!-- disqus end -->
+
+
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <!-- Footer -->
+
+</body>
+
+</html>
