@@ -1,852 +1,543 @@
 <!DOCTYPE html>
-<html lang="en-us">
-<!-- main -->
+<html lang="en">
 
+  <!-- Head -->
+  
+  <head>        
+    <!-- Metadata, OpenGraph and Schema.org    &amp;❗  <<>>>>>  -->
+    
 
-
-
-<!-- settings: /css/hux-blog.css  serach '<'*50-->
-<!-- Remove /home/mori/GitHubIO      /mogvision  example: /mogvision/logo/github.png -> /logo/github.png <<<<<<<<<<<<< -->
-
-<!-- Head tag -->
-<head>
+    <!-- Standard metadata -->
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Welcome to mogvision blog. Here you will find my tutorials, papers, programming experiments, and more.">
-    <meta name="keyword"  content="mogvision, paper, programming, code">
-    <link rel="shortcut icon" href="/logo/shortcut.png">
-
-    <title>
-        
-          MOGvision
-        
-    </title>
-
-    <link rel="canonical" href="http://testonly196.github.io/">
-
-    <!-- Bootstrap Core CSS -->
-    
-<link rel="stylesheet" href="/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edgepublications">
+    <title>Morteza Ghahremani  Ph.D.</title>
+    <meta name="author" content="Morteza Ghahremani Ph.D." />
+    <meta name="description" content="" />
+    <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website" />
 
 
-    <!-- Custom CSS -->
-    
-<link rel="stylesheet" href="/css/hux-blog.css">
+    <!-- Bootstrap & MDB -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha512-MoRNloxbStBcD8z3M/2BmnT+rg4IsMxPkXaGh2zD6LGNNFE80W3onsAhRcMAMrSoyWL9xD7Ert0men7vR8LUZg==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" integrity="sha512-RO38pBRxYH3SoOprtPTD86JFOclM51/XTIdEPh5j8sj4tp8jmQIx26twG52UaLi//hQldfrh7e51WzP9wuP32Q==" crossorigin="anonymous" />
 
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"  integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css" integrity="sha512-W4yqoT1+8NLkinBLBZko+dFB2ZbHsYLDdr50VElllRcNt2Q4/GSs6u71UHKxB7S6JEMCp5Ve4xjh3eGQl/HRvg==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons">
 
-    <!-- Pygments Highlight CSS -->
-    
-<link rel="stylesheet" href="/css/highlight.css">
+    <!-- Code Syntax Highlighting -->
+    <link rel="stylesheet" href="https://gitcdn.link/repo/jwarby/jekyll-pygments-themes/master/github.css" />
 
+    <!-- Styles -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="canonical" href="https://mogvision.github.io/">
 
-    <!-- Hamburgers css -->
-    
-<link rel="stylesheet" href="/css/hamburgers.min.css">
+    <!-- Dark Mode -->
+    <script src="/assets/js/theme.js"></script>
+    <script src="/assets/js/dark_mode.js"></script>
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RFZJLWEL2X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-RFZJLWEL2X');
+  </script>
+  </head>
 
+  <!-- Body -->
+  <body class="fixed-top-nav">
 
+    <!-- Header -->
+    <header>
 
-    <!-- Custom Fonts -->
-    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
-    <!-- Hux change font-awesome CDN to qiniu -->
-    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+      <!-- Nav Bar -->
+      <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top">
+        <div class="container">
+          
+          <!-- Navbar Toggle -->
+          <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar top-bar"></span>
+            <span class="icon-bar middle-bar"></span>
+            <span class="icon-bar bottom-bar"></span>
+          </button>
 
+          <div class="collapse navbar-collapse text-right" id="navbarNav">
+            <ul class="navbar-nav ml-auto flex-nowrap">
 
-    <!-- Hux Delete, sad but pending in China -->
-    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
-    css'>
-    
+              <!-- About -->
+              <li class="nav-item active">
+                <a class="nav-link" href="/">about<span class="sr-only">(current)</span></a>
+              </li>
+              
 
+              <!-- Other pages -->
+              <li class="nav-item ">
+                <a class="nav-link" href="/career/">career</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="publications/">publications</a>
+              </li>
 
+              <!-- Toogle theme mode -->
+              <div class="toggle-container">
+                <a id="light-toggle">
+                  <i class="fas fa-moon"></i>
+                  <i class="fas fa-sun"></i>
+                </a>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <!-- Content -->
+    <div class="container mt-5">
+      <!-- about.html -->
+      <div class="post">
+        <header class="post-header">
+          <h1 class="post-title">
+           <span class="font-weight-bold">Morteza Ghahremani</span>  Ph.D.
+          </h1>
+          <p class="desc"><span class="font-weight-bold">AI/ML Scientist</span> at 
+            <a href="https://mcml.ai/" target="_blank" rel="noopener noreferrer">Munich Center for Machine Learning (MCML)</a> 
+            &amp;
+            <a href="https://www.tum.de/en/" target="_blank" rel="noopener noreferrer">Technical University of Munich (TUM)</a> 
+        </p>
+        </header>
 
-    <!-- ga & ba script hoook -->
-    <script></script>
-<meta name="generator" content="Hexo 5.3.0">
-</head>
+        <article>
+          <div class="profile float-right">
+<figure>
 
+  <picture>  
+    <img src="https://mogvision.github.io/about/mori.png" style="max-width:200px;height:100%">
+  </picture>
 
-<!-- hack iOS CSS :active style -->
-<body ontouchstart="">
+</figure>
 
-    <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button class="hamburger hamburger--spring navbar-toggle" type="button">
-              <span class="hamburger-box">
-                <span class="hamburger-inner"></span>
-              </span>
-            </button>
-            <!--<button type="button" class="navbar-toggle">-->
-            <!--<span class="sr-only">Toggle navigation</span>-->
-            <!--<span class="icon-bar"></span>-->
-            <!--<span .intro-headerclass="icon-bar"></span>-->
-            <!--<span class="icon-bar"></span>-->
-            <!--</button>-->
+          <!-- Social -->
+          <div class="social">
+
+            <a href="mailto:morteza.ghahremani.b@gmail.com" title="email"><i class="fas fa-envelope fa-2x"></i></a>
+            <a href="https://scholar.google.com/citations?user=yhXUlXsAAAAJ&hl=en" title="Google Scholar" target="_blank" rel="noopener noreferrer"><i class="ai ai-google-scholar fa-2x"></i></a>
+            <a href="https://github.com/mogvision" title="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github fa-2x"></i></a>
+            <a href="https://www.linkedin.com/in/morteza-ghahremani-3a040421a" title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin fa-2x"></i></a>
+            <!-- <a 
+                href="https://twitter.com/timoMil" title="Twitter" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter fa-2x"></i></a>
+            -->
+
+            <div class="contact-note">
+              
+            </div>
             
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <!-- Known Issue, found by Hux:
-            <nav>'s height woule be hold on by its content.
-            so, when navbar scale out, the <nav> will cover tags.
-            also mask any touch event of tags, unfortunately.
-        -->
-        <div id="huxblog_navbar">
-            <div class="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="/">Home</a>
-                    </li>
-
-                    
-    
-                    
-                    <li>
-                        <a href="./about/">About</a>
-                    </li>
-                    
-                    
-
-
-                    
-                    <li>
-                        <a href="./contact/">Contact</a>
-                    </li>
-                    
-
-
-
-                </ul>
-            </div>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
-</nav>
-
-
-
-<script>
-    // Drop Bootstarp low-performance Navbar
-    // Use customize navbar with high-quality material design animation
-    // in high-perf jank-free CSS3 implementation
-    var $body = document.body;
-    var $toggle = document.querySelector('.navbar-toggle');
-    var $navbar = document.querySelector('#huxblog_navbar');
-    var $collapse = document.querySelector('.navbar-collapse');
-
-    $toggle.addEventListener('click', handleMagic)
-    function handleMagic(e) {
-        if ($navbar.className.indexOf('in') > 0) {
-            // CLOSE
-            $navbar.className = " ";
-            // wait until animation end.
-            setTimeout(function () {
-                // prevent frequently toggle
-                if ($navbar.className.indexOf('in') < 0) {
-                    $collapse.style.height = "0px"
-                }
-            }, 400)
-
-            var pos = $toggle.className.indexOf("is-active");
-            if (pos > 0) {
-                $toggle.className = $toggle.className.substr(0, pos);
-            }
-
-
-        } else {
-            // OPEN
-            $collapse.style.height = "auto"
-            $navbar.className += " in";
-            $toggle.className += " is-active";
-        }
-    }
-</script>
-
-
-    <!-- Main Content -->
-    <!-- Page Header --> <!-- style="background-image: url('/img/home-bg.jpg')" -->
-<header class="intro-header" >
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>
-                    <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
-                    </script>
-                    <p><span class="math display">\[\mathcal{MOG}\:\textit{vision}\]</span></p>
-                    </h1>
-                    <!--<hr class="small">-->
-                    <span class="subheading"></span>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        
-
-<!-- USE SIDEBAR -->
-    <!-- Post Container -->
-            <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
+          </div>
             
-                <!-- Main Content -->
-
-
-
-                
-
-<div class="index post-preview">
-    <div class="img-preview">
-        <a href="./RegBN/"
-           title="RegBN: Batch Normalization of Multimodal Data with Regularization"
-           style="background-image: url(./RegBN/regbn.png); background-size: 220px 160px">
-        </a>
-    </div>
-    <div class="text-preview">
-        <a href="./RegBN/">
-            <h2 class="post-title">
-                RegBN: Batch Normalization of Multimodal Data with Regularization
-            </h2>
-            <h3 class="post-subtitle">
-                
-            </h3>
-
-            <div class="post-content-preview">
-                RegBN is a  novel normalization method for  multimodal data that incorporates
-                regularization. RegBN uses the Frobenius norm as a regularizer term to address
-                the side effects of confounders and underlying dependencies among different data
-                sources...
-                </div>
-        </a>
-        <p class="post-meta">
-            <!--Posted by testonly196 on-->
-            October 10, 2023
-        </p>
-    </div>
-</div>
-<hr>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="index post-preview">
-    <div class="img-preview">
-        <a href="./ADL/"
-           title="ADL: Adversarial Distortion Learning for Image Denoising"
-           style="background-image: url(./ADL/cbsd68ADL.gif); background-size: 220px 160px">
-        </a>
-    </div>
-    <div class="text-preview">
-        <a href="./ADL/">
-            <h2 class="post-title">
-                ADL: Adversarial Distortion Learning for Image Denoising
-            </h2>
-            <h3 class="post-subtitle">
-                
-            </h3>
-
-            <div class="post-content-preview">
-            This work presents a novel adversarial distortion learning (ADL) learning scheme to further participate high-level features in the output results during training. The network does not need training data whose distribution is close to that of the test data, so improving the generalizability of the proposed network ...
-            </div>
-        </a>
-        <p class="post-meta">
-            <!--Posted by testonly196 on-->
-            April 28, 2022
-        </p>
-    </div>
-</div>
-<hr>
-
-
-<div class="index post-preview">
-    <div class="img-preview">
-        <a href="./PatternNet/"
-           title="Pattern-Net: A Deep Network for Segmentaion of 3D Point Cloud"
-           style="background-image: url(./PatternNet/logo.gif); background-size: 200px 180px"></a>
-    </div>
-    <div class="text-preview">
-        <a href="./PatternNet/">
-            <h2 class="post-title">
-                Classification & Segmentaion of 3D Point Cloud Data by Pattern-Net
-            </h2>
-            <h3 class="post-subtitle">
-                
-            </h3>
-
-            <div class="post-content-preview">
-                Existing deep networks developed for point cloud data analysis are prone to overfitting and a partial change in test data leads to unpredictable behaviour of the networks. In this paper, we propose a smart yet simple deep network for analysis of 3D models using ‘orderly disorder’ theory ...
-            </div>
-        </a>
-        <p class="post-meta">
-            <!--Posted by testonly196 on-->
-            April 7, 2022
-        </p>
-    </div>
-</div>
-<hr>
-
-
-<div class="index post-preview">
-    <div class="img-preview">
-        <a href="./FFD/"
-           title="FFD: Fast Feature Detector"
-           style="background-image: url(./FFD/logo.png); background-size: 220px 180px">
-           </a>
-    </div>
-    <div class="text-preview">
-        <a href="./FFD/">
-            <h2 class="post-title">
-               FFD: Fast Feature Detector
-            </h2>
-            <h3 class="post-subtitle">
-                
-            </h3>
-
-            <div class="post-content-preview">
-                FFD is a multiscale feature detector for finding reliable keypoints/feature points in images.  The model is formulated via difference-of-Gaussian (DoG) kernels in the continuous scale-space domain, and it is proved that setting the scale-space pyramid’s blurring ratio and smoothness to 2 and 0.627, respectively, facilitates the detection of reliable keypoints ...
-            </div>
-        </a>
-        <p class="post-meta">
-            <!--Posted by testonly196 on-->
-            April 17, 2022
-        </p>
-    </div>
-</div>
-<hr>
-
-
-
-
-
-
-
-<div class="index post-preview">
-    <div class="img-preview">
-        <a href="./RAN/"
-           title="RAN: Regional Attention Network for Pose and Gesture Recognition"
-           style="background-image: url(./RAN/logo.png); background-size: 185px 180px"></a>
-    </div>
-    <div class="text-preview">
-        <a href="./RAN/">
-            <h2 class="post-title">
-                RAN: Regional Attention Network for Pose and Gesture Recognition
-            </h2>
-
-            <div class="post-content-preview">
-                Affect is often expressed via non-verbal body language such as actions/gestures, which are vital indicators for human behaviors. This work presents a novel end-to-end Regional Attention Network (RAN), which is a fully Convolutional Neural Network (CNN) to combine multiple contextual regions through attention mechanism, focusing on parts of the images that are most relevant to a given task ...
-            </div>
-        </a>
-        <p class="post-meta">
-            <!--Posted by testonly196 on-->
-            March 29, 2022
-        </p>
-    </div>
-</div>
-<hr>
-
-
-<div class="index post-preview">
-    <div class="img-preview">
-        <a href="./InterTex/"
-           title="InterTex: Interwoven Texture-Based Description of Keypoints"
-           style="background-image: url(./InterTex/logo.png); background-size: 190px 190px"></a>
-    </div>
-    <div class="text-preview">
-        <a href="./InterTex/">
-            <h2 class="post-title">
-                InterTex: Interwoven Texture-Based Description of Keypoints
-            </h2>
-            <h3 class="post-subtitle">
-                
-            </h3>
-
-            <div class="post-content-preview">
-                Local feature description is to assign a unique signature to a key-point such that it becomes distinctive from the others regardless of changes in viewpoint, illumination, rotation, scale as well as distortions and noise. This paper proposes a novel approach to construct such a descriptor ...
-            </div>
-        </a>
-        <p class="post-meta">
-            <!--Posted by testonly196 on-->
-            March 20, 2022
-        </p>
-    </div>
-</div>
-<hr>
-
-
-
-
-
-<div class="index post-preview">
-    <div class="img-preview">
-        <a href="./deepSeg/"
-           title="Deep Segmentation of Point Clouds of Wheat"
-           style="background-image: url(./deepSeg/logo.png); background-size: 170px 170px"></a>
-    </div>
-    <div class="text-preview">
-        <a href="./deepSeg/">
-            <h2 class="post-title">
-                Deep Segmentation of Point Clouds of Wheat
-            </h2>
-
-            <div class="post-content-preview">
-                The 3D analysis of plants has become increasingly effective in modeling the relative structure of organs and other traits of interest. This study is the first to segment the point clouds of wheat into defined organs and to analyse their traits directly in 3D space ...
-            </div>
-        </a>
-        <p class="post-meta">
-            <!--Posted by testonly196 on-->
-            March 12, 2022
-        </p>
-    </div>
-</div>
-<hr>
-
-
-<div class="index post-preview">
-    <div class="img-preview">
-        <a href="./CSIGAN/"
-           title="CSI-GAN: A Constrained GAN for Image Enhancement"
-           style="background-image: url(./CSIGAN/logo.PNG); background-size: 170px 180px"></a>
-    </div>
-    <div class="text-preview">
-        <a href="./CSIGAN/">
-            <h2 class="post-title">
-                CSI-GAN: A Constrained GAN for Image Enhancement
-            </h2>
-
-            <div class="post-content-preview">
-                CSI-GAN is proposed to transform input images into enhanced ones without paired images.
-                Inspired by CycleGAN based on the global constraints of the adversarial loss and cycle consistency, the proposed CSI-GAN treats low and high quality images as those in two domains and computes local structure and illumination constraints for learning both overall characteristics and local details ...
-            </div>
-        </a>
-        <p class="post-meta">
-            <!--Posted by testonly196 on-->
-            March 1, 2022
-        </p>
-    </div>
-</div>
-<hr>
-
-
-
-
-
-<div class="index post-preview">
-    <div class="img-preview">
-        <a href="./SR/"
-           title="Remote Sensing Image Super-Resolution"
-           style="background-image: url(./SR/logo.png); background-size: 180px 180px"></a>
-    </div>
-    <div class="text-preview">
-        <a href="./SR/">
-            <h2 class="post-title">
-                Remote Sensing Image Super-Resolution
-            </h2>
-
-            <div class="post-content-preview">
-                To provide spectral sensors with high-spatial resolution capability is very challenging due to the constraints and limitations on the satellite’s payload, cost, complexity and bandwidth. Remote sensing image super-resolution  enhances the spatial resolution of the low-spatial resolution multispectral images ...
-            </div>
-        </a>
-        <p class="post-meta">
-            <!--Posted by testonly196 on-->
-            Feb 1, 2022
-        </p>
-    </div>
-</div>
-<hr>
-
-
-
-<div class="index post-preview">
-    <div class="img-preview">
-        <a href="./admmNet/"
-           title="Solving Linear Inverse Problems Using Wavelet-Nets"
-           style="background-image: url(./admmNet/logo.png); background-size: 180px 164px"></a>
-    </div>
-    <div class="text-preview">
-        <a href="./admmNet/">
-            <h2 class="post-title">
-                Solving Linear Inverse Problems Using Wavelet-Nets
-            </h2>
-
-            <div class="post-content-preview">
-                In this paper we propose a novel learning-based wavelet transform and demonstrate its utility as a representation in solving a number of linear inverse problems—these are asymmetric problems, where the forward problem is easy to solve, but the inverse is difficult and often ill-posed. The wavelet decomposition is comprised of the application of an invertible 2D wavelet filter-bank comprising symmetric and anti-symmetric filters, in combination with a set of 1×1 convolution filters learnt from Principal Component Analysis (PCA) ...
-            </div>
-        </a>
-        <p class="post-meta">
-            <!--Posted by testonly196 on-->
-            Jan 19, 2022
-        </p>
-    </div>
-</div>
-<hr>
-
-
-<div class="index post-preview">
-    <div class="img-preview">
-        <a href="./deepPod/"
-           title="DeepPod: a CNN for quantification of Plants' Fruits"
-           style="background-image: url(./deepPod/logo.png); background-size: 200px 184px"></a>
-    </div>
-    <div class="text-preview">
-        <a href="./deepPod/">
-            <h2 class="post-title">
-                DeepPod: a CNN-bsaed for Quantification of Plants' Fruits
-            </h2>
-
-            <div class="post-content-preview">
-                This work demonstrates that deep learning can be used to estimate fruit number from images. In particular, we have developed DeepPod, a framework for Arabidopsis silique detection that involves a deep neural network for patch-based classification and an object reconstructor for silique localization and counting. The framework has been validated using a separate dataset of 2,408 images from biological experiments ...
-            </div>
-        </a>
-        <p class="post-meta">
-            <!--Posted by testonly196 on-->
-            Jan 3, 2022
-        </p>
-    </div>
-</div>
-<hr>
-
-
-
-
-
-
-
-<!-- Pager -->
-
-<ul class="pager">
-    
-    
-</ul>
-
-
-            </div>
-    <!-- Sidebar Container -->
-            <div class="
-                col-lg-3 col-lg-offset-0
-                col-md-3 col-md-offset-0
-                col-sm-12
-                col-xs-12
-                sidebar-container
-            ">
-
-
-            <div class="row responsive-sidebar">
-    <div class="col-xs-4 col-sm-4 col-md-12">
-        <section>
-            <div class="short-about">
-                
-                <a href="./about/" title="More about me"> <img
-                            src="./about/photo_wo_bg.png"/></a>
-                
-            </div>
-        </section>
-    </div>
-    <div class="col-xs-8 col-sm-4 col-md-12">
-
-        <!-- Short About -->
-        <section>
-            <!--<br><br>-->
-            <h5><a href="./about/">ABOUT ME</a></h5>
-            <div class="short-about">
-
-
-                
-                <p>Hello, I am Mori and I&#39;m working on computer vision and medical imaging. 
-                    I obtained my PhD in artificial intelligence (AI) in May, 2021; since 2022, I&#39;ve been working at   
-                <a href="https://www.cit.tum.de/en/cit/home/">School of CIT</a>
-                     at the Technical University of Munich (TUM), Munich, Germany.
-                </p>
-                <p>Find my latest work here. <br><a href="./about/" title="More about me"> More. </a>
-                    
-                </p>
-                
-            </div>
-        </section>
-
-    </div>
-    <div class="col-xs-12 col-sm-4 col-md-12">
-
-        <!-- Featured Tags -->
-        
-        <hr class="hidden-sm">
-        <section>
-            <!-- no hr -->
-            <h5><a href="">FEATURED TAGS</a></h5>
-            <div class="tags">
-        
-
-                <a href="" title="Multimedia"
-                rel="1">Multimedia</a>
-
-
-                <a href="" title="vision"
-                   rel="1">vision</a>
-                
-
-                
-                <a href="" title="3D Point Clouds"
-                   rel="1">3D Point Clouds</a>
+          </div>
+
+          <div class="clearfix">
+
+            <p>Welcome to the innovative universe of Mori! As a member of the
+                <a href="https://ai-med.de/" target="_blank" rel="noopener noreferrer">AI-Med group</a>
+                at TUM, Mori is at the cutting edge of AI research, constantly pushing 
+                the boundaries of what's possible in the intersection of computer vision and medical imaging. 
+                Mori's research interests are as diverse as they are innovative, including 
+                integrating and analyzing multimodal data to uncover deeper insights, 
+                delving into the text-to-image/video via Diffusion Models, 
+                enhancing the accuracy and efficiency of 
+                organ/object detection in 2D/3D data, 
+                revolutionizing deformable image registration of MRI, and 
+                improving the clarity and detail of images with denoising and 
+                superresolution. 
+
+            </p>
+            <p> When Mori isn't buried in research papers or tinkering with 
+                algorithms, you'll find a playful spirit who loves to explore the intersection 
+                of AI and creativity, whether it's generating quirky AI-generated art, 
+                imagining whimsical future tech, or just having a good laugh at the latest AI memes. 
+            </p>
                 
 
 
-                <a href="" title="Multiscale"
-                   rel="2">Multiscale</a>
-                
-                
-                
-                <a href="" title="Pattern"
-                   rel="1">Pattern</a>
+
+          </div>
+
+          <!-- News -->          
+          <div class="news">
+            <h2>News</h2>
+            <div class="table-responsive">
+              <table class="table table-sm table-borderless"> 
+                <tr>
+                    <th scope="row">Jun, 2024</th>
+                    <td>
+                      <a href="https://mogvision.github.io/????/" target="_blank" rel="noopener noreferrer">
+                          StablePose</a> has been released.
+                    </td>
+                </tr> 
+                <tr>
+                    <th scope="row">Feb, 2024</th>
+                    <td>
+                      <a href="https://mogvision.github.io/hvit/" target="_blank" rel="noopener noreferrer">
+                          HViT</a> accepted at CVPR 2024.
+                    </td>
+                </tr> 
+                <tr>
+                    <th scope="row">Sep, 2023</th>
+                    <td>
+                      <a href="https://mogvision.github.io/RegBN/" target="_blank" rel="noopener noreferrer">
+                          RegBN</a> accepted at NeurIPS 2023.
+                    </td>
+                </tr> 
+                <tr>
+              </table>
+            </div> 
+          </div>
+
+          <!-- Selected papers -->
+          <div class="publications">
+            <h2>Recent publications</h2>
+            (For full list, please see 
+            <a href="./publications/">publications</a> 
+            or 
+            <a href="https://scholar.google.com/citations?user=yhXUlXsAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar profile</a>.) 
+            <br>
+            <br>
+            <ol class="bibliography">
 
 
 
-                <a href="" title="CNN"
-                   rel="1">DNN</a>
-
-            </div>
-        </section>
-        
-
-        <!-- Friends Blog -->
-        
-        <hr>
-        <h5>GROUPS</h5>
-        <ul class="list-inline">
-            <ul><li><a href="https://ai-med.de/" target="_blank">Artificial Intelligence in Medical Imaging, Germany</a></li></ul>
-
-
-            <ul><li><a href="https://www.uef.fi/en/unit/ai-virtanen-institute-for-molecular-sciences" target="_blank">A.I. Virtanen Institute, Finland</a></li></ul>
-
-        </ul>
-        
+<li>
+  <!-- _layouts/bib.html -->
+  <div class="row">
+    <div class="col-sm-2 abbr">
+    <td width="140"><img src="https://mogvision.github.io/?.jpg" class="nofloat" width="140"></td>
+  </div>
+  <!-- Entry bib key -->
+  <div id="????????????" class="col-sm-10">
+  <!-- Title -->
+  <div class="title">H-ViT: A Hierarchical Vision Transformer for Deformable Image Registration</div>
+  <!-- Author -->
+  <div class="author">
+    <strong>M. Ghahremani*</strong>, M. Khateri, B. Jian, B. Wiestler, E. Adeli, and C. Wachinger
+  </div>
+  <!-- Journal/Book title and date -->
+  <div class="periodical">
+    <em>IEEE Conference on Computer Vision and Pattern Recognition (CVPR)</em> 2024
+  </div>
+  <!-- Links/Buttons -->       
+  <div class="links">
+    <div class="taglike"> 
+      <a href="https://openaccess.thecvf.com/content/CVPR2024/html/Ghahremani_H-ViT_A_Hierarchical_Vision_Transformer_for_Deformable_Image_Registration_CVPR_2024_paper.html" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">CVPR</a>
+      <a href="https://mogvision.github.io/hvit/" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">Project</a>
+      <a href="https://github.com/mogvision/hvit" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">Code</a>
     </div>
+  </div>
+</li>
+
+
+
+<li>
+  <!-- _layouts/bib.html -->
+  <div class="row">
+    <div class="col-sm-2 abbr">
+    <td width="140"><img src="https://mogvision.github.io/RegBN/regbn.jpg" class="nofloat" width="140"></td>
+  </div>
+  <!-- Entry bib key -->
+  <div id="NEURIPS2023_4488bf83" class="col-sm-10">
+  <!-- Title -->
+  <div class="title">RegBN: Batch Normalization of Multimodal Data with Regularization</div>
+  <!-- Author -->
+  <div class="author">
+    <strong>M. Ghahremani*</strong> and C. Wachinger
+  </div>
+  <!-- Journal/Book title and date -->
+  <div class="periodical">
+    <em>Advances in Neural Information Processing Systems (NeurIPS)</em> 2023
+  </div>
+  <!-- Links/Buttons -->       
+  <div class="links">
+    <div class="taglike"> 
+      <a href="https://proceedings.neurips.cc/paper_files/paper/2023/file/4488bf8354049b1cd592b6418dc30466-Paper-Conference.pdf" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">NeurIPS</a>
+      <a href="https://arxiv.org/abs/2310.00641" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">arXiv</a>
+      <a href="https://mogvision.github.io/RegBN/" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">Project</a>
+      <a href="https://github.com/mogvision/regbn" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">Code</a>
+    </div>
+  </div>
+</li>
+
+
+              
+<li>
+  <!-- _layouts/bib.html -->
+  <div class="row">
+    <div class="col-sm-2 abbr">
+    <td width="140"><img src="https://mogvision.github.io/RegBN/regbn.jpg" class="nofloat" width="140"></td>
+  </div>
+  <!-- Entry bib key -->
+  <div id="NEURIPS2023_4488bf83" class="col-sm-10">
+  <!-- Title -->
+  <div class="title"> Stable-Pose: Leveraging Transformers for Pose-Guided Text-to-Image Generation  </div>
+  <!-- Author -->
+  <div class="author">
+    J. Wang*, <strong>M. Ghahremani*</strong>, Y. Li*, B. Ommer, and C. Wachinger
+  </div>
+  <!-- Links/Buttons -->       
+  <div class="links">
+    <div class="taglike"> 
+      <a href="https://arxiv.org/abs/2406.02485" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">arXiv</a>
+      <a href="https://github.com/ai-med/StablePose" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">Project</a>
+      <a href="https://github.com/ai-med/StablePose" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">Code</a>
+    </div>
+  </div>
+</li>
+
+
+
+
+
+<li>
+  <!-- _layouts/bib.html -->
+  <div class="row">
+    <div class="col-sm-2 abbr">
+    <td width="140"><img src="???https://mogvision.github.io/RegBN/regbn.jpg" class="nofloat" width="140"></td>
+  </div>
+  <!-- Entry bib key -->
+  <div id="NEURIPS2023_4488bf83" class="col-sm-10">
+  <!-- Title -->
+  <div class="title">Organ-DETR: Organ Detection via Transformers</div>
+  <!-- Author -->
+  <div class="author">
+    <strong>M. Ghahremani*</strong>, B. R. Ernhofer*, J. Wang*, M. Makowski, and C. Wachinger
+  </div>
+  <!-- Links/Buttons -->       
+  <div class="links">
+    <div class="taglike"> 
+      <a href="???" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">arXiv</a>
+      <a href="https://github.com/ai-med/OrganDETR/tree/main" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">Project</a>
+      <a href="???" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">Code</a>
+    </div>
+  </div>
+</li>
+
+
+<li>
+  <!-- _layouts/bib.html -->
+  <div class="row">
+    <div class="col-sm-2 abbr">
+    <td width="140"><img src="???https://mogvision.github.io/RegBN/regbn.jpg" class="nofloat" width="140"></td>
+  </div>
+  <!-- Entry bib key -->
+  <div id="NEURIPS2023_4488bf83" class="col-sm-10">
+  <!-- Title -->
+  <div class="title">Box It to Bind It: Unified Layout Control and Attribute Binding in T2I Diffusion Models</div>
+  <!-- Author -->
+  <div class="author">
+    A. Taghipour, <strong>M. Ghahremani*</strong>, M Bennamoun, A. M. Rekavandi, H. Laga, and F. Boussaid
+  </div>
+  <!-- Links/Buttons -->       
+  <div class="links">
+    <div class="taglike"> 
+      <a href="https://arxiv.org/abs/2402.17910" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">arXiv</a>
+      <a href="https://github.com/nextaistudio/BoxIt2BindIt" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">Project</a>
+      <a href="https://github.com/nextaistudio/BoxIt2BindIt" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">Code</a>
+    </div>
+  </div>
+</li>
+
+
+
+<li>
+  <!-- _layouts/bib.html -->
+  <div class="row">
+    <div class="col-sm-2 abbr">
+    <td width="140"><img src="???https://mogvision.github.io/RegBN/regbn.jpg" class="nofloat" width="140"></td>
+  </div>
+  <!-- Entry bib key -->
+  <div id="NEURIPS2023_4488bf83" class="col-sm-10">
+  <!-- Title -->
+  <div class="title">No-Clean-Reference Image Super-Resolution: Application to Electron Microscopy</div>
+  <!-- Author -->
+  <div class="author">
+    M. Khateri, <strong>M. Ghahremani*</strong>, A. Sierra, J. Tohka
+  </div>
+  <!-- Journal/Book title and date -->
+  <div class="periodical">
+    <em>IEEE Transactions on Computational Imaging (IEEE-TCI) </em> 2024
+  </div>
+  <!-- Links/Buttons -->       
+  <div class="links">
+    <div class="taglike"> 
+      <a href="https://ieeexplore.ieee.org/document/10592622" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">IEEE-TCI</a>
+      <a href="https://arxiv.org/abs/2401.08115" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">arXiv</a>
+      <a href="https://github.com/mkhateri/EMSR" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">Code</a>
+    </div>
+  </div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+  <!-- _layouts/bib.html -->
+  <div class="row">
+    <div class="col-sm-2 abbr">
+    <td width="100"><img src="https://mogvision.github.io/PatternNet/logo.gif" class="nofloat" width="100"></td>
+  </div>
+  <!-- Entry bib key -->
+  <div id="milbich2020diva" class="col-sm-10">
+  <!-- Title -->
+  <div class="title">Orderly disorder in point cloud domain</div>
+  <!-- Author -->
+  <div class="author">
+    <strong>M. Ghahremani*</strong>, B. Tiddeman, Y. Liu, and A. Behera 
+  </div>
+  <!-- Journal/Book title and date -->
+  <div class="periodical">
+    <em>European Conference on Computer Vision (ECCV)</em> 2020 
+  </div>
+  <!-- Links/Buttons -->       
+  <div class="links">
+    <div class="taglike"> 
+      <a href="https://link.springer.com/chapter/10.1007/978-3-030-58604-1_30" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">ECCV</a>
+      <a href="https://arxiv.org/abs/2008.09634" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">arXiv</a>
+    </div>
+  </div>
+</li>
+
+
+
+<li>
+  <!-- _layouts/bib.html -->
+  <div class="row">
+    <div class="col-sm-2 abbr">
+    <td width="100"><img src="https://mogvision.github.io/FFD/logo.png" class="nofloat" width="100"></td>
+  </div>
+  <!-- Entry bib key -->
+  <div id="9292438" class="col-sm-10">
+  <!-- Title -->
+  <div class="title">FFD: Fast Feature Detector </div>
+  <!-- Author -->
+  <div class="author">
+    <strong>M. Ghahremani*</strong>, Y. Liu, and B. Tiddeman
+  </div>
+  <!-- Journal/Book title and date -->
+  <div class="periodical">
+    <em>IEEE Transactions on Image Processing (IEEE TIP)</em> 2021
+  </div>
+  <!-- Links/Buttons -->       
+  <div class="links">
+    <div class="taglike"> 
+      <a href="https://ieeexplore.ieee.org/abstract/document/9292438" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">IEEE TIP</a>
+      <a href="https://arxiv.org/abs/2012.00859" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">arXiv</a>
+      <a href="https://github.com/mogvision/FFD/" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">Code</a>
+    </div>
+  </div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ol>
+          </div>
+
+
+        </article>
+
 </div>
 
-            </div>
-        
     </div>
-</div>
 
+    <!-- Footer -->    
+    <footer class="fixed-bottom">
+      <div class="container mt-0">
+        © Copyright 2024 Morteza Ghahremani. Based on <a href="http://jekyllrb.com/" target="_blank" rel="noopener noreferrer">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" target="_blank" rel="noopener noreferrer">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a>.
 
-    <!-- Footer -->
-    <!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="text-center">
-                    <ul class="list-inline">
+      </div>
+    </footer>
 
+  </body>
 
+  <!-- jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 
+  <!-- Bootsrap & MDB scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/umd/popper.min.js" integrity="sha512-eUQ9hGdLjBjY3F41CScH3UX+4JDSI9zXeroz7hJ+RteoCaY+GP/LDoM8AO+Pt+DRFw3nXqsjh9Zsts8hnYv8/A==" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha512-M5KW3ztuIICmVIhjSqXe01oV2bpe248gOxqmlcYrEzAvws7Pw3z6BK0iGbrwvdrUQUhi3eXgtxp5I8PDo9YfjQ==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js" integrity="sha512-Mug9KHKmroQFMLm93zGrjhibM2z2Obg9l6qFG2qKjXEXkMp/VDkI4uju9m4QKPjWSwQ6O2qzZEnJDEeCw0Blcw==" crossorigin="anonymous"></script>
 
+  <!-- Mansory & imagesLoaded -->
+  <script defer src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+  <script defer src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+  <script defer src="/assets/js/mansory.js" type="text/javascript"></script>
+  
+  <!-- Medium Zoom JS -->
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+  <script src="/assets/js/zoom.js"></script><!-- Load Common JS -->
+  <script src="/assets/js/common.js"></script>
 
-        <li>
-            <a target="_blank" href="https://scholar.google.com/citations?user=yhXUlXsAAAAJ">
-                <span class="fa-stack fa-lg">
-                    <img alt="" src="/logo/icon-scholar.svg" width="45" height="45" />
-                </span>
-            </a>
-        </li>
-    
-        <li>
-            <a target="_blank" href="https://github.com/mogvision">
-                <span class="fa-stack fa-lg">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                </span>
-            </a>
-        </li>
+  <!-- MathJax -->
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        tags: 'ams'
+      }
+    };
+  </script>
+  <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js"></script>
+  <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 
-
-        <li>
-            <a target="_blank" href="https://www.researchgate.net/profile/Morteza-Ghahremani-3">
-                <span class="fa-stack fa-lg">
-                    <img alt="" src="/logo/icon-researchgate.svg" width="47" height="47" />
-                </span>
-            </a>
-        </li>
-
-
-        <li>
-            <a target="_blank" href="http://linkedin.com/in/morteza-ghahremani-3a040421a">
-                <span class="fa-stack fa-lg">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-                </span>
-            </a>
-        </li>
-
-
-        <li>
-            <a class="contact-link EmailLink" href="mailto:morteza.ghahremani.b@gmail.com">
-                <span class="fa-stack fa-lg">
-                    <img alt="" src="./logo/icon-mail.svg" width="45" height="45" />
-                </span>
-            </a>
-        </li>
-
-
-
-    
-</ul>
-                </div>
-                <p class="copyright text-muted">
-                    &copy; mogvision 2022
-                    <br>
-                    Theme by <a target="_blank" rel="noopener" href="http://huangxuan.me">Hux</a>. 
-                    Modified by <a href="/">mogvision</a>
-                </p>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<!-- jQuery -->
-
-<script src="/js/jquery.min.js"></script>
-
-
-<!-- Bootstrap Core JavaScript -->
-
-<script src="/js/bootstrap.min.js"></script>
-
-
-<!-- Custom Theme JavaScript -->
-
-<script src="/js/hux-blog.js"></script>
-
-
-
-<!-- async load function -->
-<script>
-    function async(u, c) {
-        var d = document, t = 'script',
-            o = d.createElement(t),
-            s = d.getElementsByTagName(t)[0];
-        o.src = u;
-        if (c) {
-            o.addEventListener('load', function (e) {
-                c(null, e);
-            }, false);
-        }
-        s.parentNode.insertBefore(o, s);
-    }
-</script>
-
-
-<!--fastClick.js -->
-<script>
-    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
-        var $nav = document.querySelector("nav");
-        if ($nav) FastClick.attach($nav);
-    })
-</script>
-
-
-<!-- Google Analytics -->
-
-
-    <script>
-        // Originial
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-        ga('create', 'UA-85798112-1', 'auto');
-        ga('send', 'pageview');
-
-        $('body').on('click', 'a', function (e) {
-            var _ = $(this);
-            if(_[0].pathname.indexOf('.') > -1 && _[0].hostname === window.location.hostname){
-
-                if (_.data('prevented') === 1)
-                {
-                    _.removeData("prevented");
-                    return true;
-                }
-
-                e.preventDefault();
-                _.data('prevented', 1);
-                window.__gacb = function () {
-                    _[0].click();
-                };
-                console.log('Download:', _[0].pathname);
-                ga('send', 'pageview', {
-                    'page': _[0].pathname,
-                    'hitCallback': function() {
-                        window.__gacb();
-                    }
-                })
-                return false;
-            }
-        });
-
-
-    </script>
-
-
-
-
-<!-- Side Catalog -->
-
-
-<!-- Image to hack wechat -->
-<!-- img src="http://testonly196.github.io/img/icon_wechat.png" width="0" height="0" />-->
-<!-- Migrate from head to bottom, no longer block render and still work -->
-
-</body>
-
+  <!--<!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RFZJLWEL2X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-RFZJLWEL2X');
+  </script>-->
 </html>
