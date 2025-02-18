@@ -10,16 +10,29 @@
     <meta name="description" content="">
     <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website">
 
-    <!-- Styles -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons">
-    <link rel="stylesheet" href="https://gitcdn.link/repo/jwarby/jekyll-pygments-themes/master/github.css">
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="canonical" href="https://mogvision.github.io/">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
+    <!-- Critical CSS inline -->
+    <style>
+      /* Add only the most essential styles needed for initial render here */
+      body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; padding-top: 6rem; background-color: #ffffff; }
+      .navbar { background: #fff; padding: 1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+      .fixed-top-nav { padding-top: 56px; }
+      .container { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+      .profile img { max-width: 180px; height: auto; }
+      .social a { margin-right: 15px; color: #666; text-decoration: none; }
+      .social a:hover { color: #0056b3; }
+      /* Add other critical styles... */
+    </style>
+
+    <!-- Load essential CSS asynchronously -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" media="print" onload="this.media='all'">
+    
+    <!-- Defer non-critical CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css" media="print" onload="this.media='all'">
+    
+    <!-- Remove unused CSS frameworks -->
+    <!-- Remove MDB if not heavily used -->
+    <!-- Remove other unused stylesheets -->
 
     <!-- Scripts -->
     <script src="/assets/js/theme.js"></script>
@@ -96,7 +109,7 @@
           <div class="profile float-right">
             <figure>
               <picture>
-                <img src="https://mogvision.github.io/about/mori.png" style="max-width:180px;height:86%">
+                <img src="https://mogvision.github.io/about/mori.png" style="max-width:180px;height:86%" loading="lazy" alt="Morteza Ghahremani">
               </picture>
             </figure>
 
@@ -187,7 +200,7 @@
               <li>
                 <div class="row">
                   <div class="col-sm-2 abbr">
-                    <td width="130"><img src="https://mogvision.github.io/publications/hvit.png" class="nofloat" width="130"></td>
+                    <td width="130"><img src="https://mogvision.github.io/publications/hvit.png" class="nofloat" width="130" loading="lazy" alt="H-ViT: A Hierarchical Vision Transformer for Deformable Image Registration"></td>
                   </div>
                   <div id="????????????" class="col-sm-10">
                     <div class="title">H-ViT: A Hierarchical Vision Transformer for Deformable Image Registration</div>
@@ -207,7 +220,7 @@
               <li>
                 <div class="row">
                   <div class="col-sm-2 abbr">
-                    <td width="140"><img src="https://mogvision.github.io/RegBN/regbn.jpg" class="nofloat" width="140"></td>
+                    <td width="140"><img src="https://mogvision.github.io/RegBN/regbn.jpg" class="nofloat" width="140" loading="lazy" alt="RegBN: Batch Normalization of Multimodal Data with Regularization"></td>
                   </div>
                   <div id="NEURIPS2023_4488bf83" class="col-sm-10">
                     <div class="title">RegBN: Batch Normalization of Multimodal Data with Regularization</div>
@@ -228,7 +241,7 @@
               <li>
                 <div class="row">
                   <div class="col-sm-2 abbr">
-                    <td width="160" height="80"><img src="https://mogvision.github.io/publications/stablepose.png" class="nofloat" width="160" height="80"></td>
+                    <td width="160" height="80"><img src="https://mogvision.github.io/publications/stablepose.png" class="nofloat" width="160" height="80" loading="lazy" alt="Stable-Pose: Leveraging Transformers for Pose-Guided Text-to-Image Generation"></td>
                   </div>
                   <div id="NEURIPS2023_4488bf83" class="col-sm-10">
                     <div class="title">Stable-Pose: Leveraging Transformers for Pose-Guided Text-to-Image Generation</div>
@@ -249,7 +262,7 @@
               <li>
                 <div class="row">
                   <div class="col-sm-2 abbr">
-                    <td width="140" height="70"><img src="https://mogvision.github.io/publications/organdetr.png" class="nofloat" width="120" height="70"></td>
+                    <td width="140" height="70"><img src="https://mogvision.github.io/publications/organdetr.png" class="nofloat" width="120" height="70" loading="lazy" alt="Organ-DETR: Organ Detection via Transformers"></td>
                   </div>
                   <div id="NEURIPS2023_4488bf83" class="col-sm-10">
                     <div class="title">Organ-DETR: Organ Detection via Transformers</div>
@@ -269,7 +282,7 @@
               <li>
                 <div class="row">
                   <div class="col-sm-2 abbr">
-                    <td width="140" height="70"><img src="https://mogvision.github.io/publications/b2b.png" class="nofloat" width="140" height="70"></td>
+                    <td width="140" height="70"><img src="https://mogvision.github.io/publications/b2b.png" class="nofloat" width="140" height="70" loading="lazy" alt="Box It to Bind It: Unified Layout Control and Attribute Binding in T2I Diffusion Models"></td>
                   </div>
                   <div id="NEURIPS2023_4488bf83" class="col-sm-10">
                     <div class="title">Box It to Bind It: Unified Layout Control and Attribute Binding in T2I Diffusion Models</div>
@@ -288,7 +301,7 @@
               <li>
                 <div class="row">
                   <div class="col-sm-2 abbr">
-                    <td width="140"><img src="https://mogvision.github.io/publications/SR.png" class="nofloat" width="140"></td>
+                    <td width="140"><img src="https://mogvision.github.io/publications/SR.png" class="nofloat" width="140" loading="lazy" alt="No-Clean-Reference Image Super-Resolution: Application to Electron Microscopy"></td>
                   </div>
                   <div id="NEURIPS2023_4488bf83" class="col-sm-10">
                     <div class="title">No-Clean-Reference Image Super-Resolution: Application to Electron Microscopy</div>
@@ -317,25 +330,12 @@
       </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
-    <script defer src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-    <script defer src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
-    <script defer src="/assets/js/mansory.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
-    <script src="/assets/js/zoom.js"></script>
-    <script src="/assets/js/common.js"></script>
-    <script type="text/javascript">
-      window.MathJax = {
-        tex: {
-          tags: 'ams'
-        }
-      };
-    </script>
-    <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js"></script>
-    <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <!-- Load JavaScript at the end -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Remove or defer non-essential scripts -->
+    <!-- Remove MathJax if not needed on initial load -->
+    <!-- Remove masonry, imagesloaded if not critical -->
   </body>
 </html>
